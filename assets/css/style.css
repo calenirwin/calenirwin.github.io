@@ -89,11 +89,11 @@ body {
   color: #85461e;
   font-size: 20px;
   font-family: 'Didact Gothic';
+  font-style: 'italic';
   width: -webkit-fit-content;
   height: -webkit-fit-content;
   width: -moz-fit-content;
   height: -moz-fit-content;
-  border-bottom: 1px solid #85461e;
 }
 
 .section-body {
