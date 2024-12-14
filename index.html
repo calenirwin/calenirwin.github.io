@@ -1,133 +1,179 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Calen Irwin</title>
-
-    <!-- Meta -->
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calen Irwin</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link id="theme-style" rel="stylesheet" href="assets/css/style.css">
-    
-    <script defer src="assets/fontawesome/js/all.js"></script>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #2c3e50;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        section h2 {
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: #2c3e50;
+        }
+
+        /* Hero section */
+        #home {
+            background-color: #ecf0f1;
+            text-align: center;
+            padding-top: 6rem;
+        }
+
+        #home img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 2rem;
+        }
+
+        /* Projects section */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Contact section */
+        #contact {
+            background-color: #ecf0f1;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
 </head>
-
 <body>
-    <div class="header">
-        <div class="title">
-            <div  style="color: #35281e; font-size: 36px;"><span style="font-size: 48px">C</span>alen <span style="font-size: 48px">I</span>rwin</div>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <img src="/api/placeholder/200/200" alt="Your Profile Picture">
+        <h1>Calen Irwin</h1>
+        <p>Data Scientist | AI Engineer | Autonomy Research</p>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I'm building technology for the future of autonomous train operation with AI and intelligent data analytics</p>
+        <p>Skills:</p>
+        <ul>
+            <li>Python</li>
+            <li>SQL</li>
+            <li>Linux</li>
+            <li>Git</li>
+        </ul>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>Project 1</h3>
+                <p>Description of your first project. What you did, technologies used, and the outcome.</p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>Project 2</h3>
+                <p>Description of your second project. What you did, technologies used, and the outcome.</p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>Project 3</h3>
+                <p>Description of your third project. What you did, technologies used, and the outcome.</p>
+                <a href="#">View Project</a>
+            </div>
         </div>
-        <div class="avatar">
-            <img class="profile-image img-fluid float-left" src="assets/images/profile-small.jpg" style="border-radius: 50%;" alt="Calen Irwin" />
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="social-links">
+            <a href="https://github.com/calenirwin">GitHub</a>
+            <a href="https://linkedin.com/in/calen-b-irwin">LinkedIn</a>
+            <a href="mailto:calen.irwin@gmail.com">Email</a>
         </div>
-        <div class="socials">
-            <ul>
-                <li>
-                    <a href="https://www.linkedin.com/in/calen-b-irwin/">
-                        <span class="fa-stack">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fab fa-linkedin-in fa-stack-1x fa-inverse"></i>
-                      </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.kaggle.com/calenirwin">
-                        <span class="fa-stack">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fab fa-kaggle fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://github.com/calenirwin">
-                        <span class="fa-stack">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://blog.calenirwin.com">
-                        <span class="fa-stack">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fas fa-blog fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="mailto:calen.irwin@outlook.com">
-                        <span class="fa-stack">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="content-wrapper">
-        <div class="content">
-            <div class="section-subtitle">About</div><br>
-            <div class="content-item">
-                <div class="section-body">
-                    I am a Masters student at Queen's University School of Computing in Ontario, Canada. My research focus is on anomaly detection in autonomous train operation. Aside from computing, I am passionate about music, design, and health modalities. In my free time I enjoy exploring Ontario's provincial parks and reading fantasy novels.
-                </div>
-            </div>
-            <br>
-            <div class="section-subtitle">Current Work</div>
-            <div class="content-item">
-                <div>
-                    <div class="section-subtitle">Research</div><br>
-                    I am a member of the Big Data Analytics and Management Laboratory (BAM Lab) at Queen's. Under the supervision of <a class="in-body-link" href="http://bamlab.ca">Dr. Farhana Zulkernine</a>, I am completing my thesis on unsupervised anomaly detection in sensor timeseries data.
-                Specifically I am interested in developing models and approaches that have business value in the context of large-scale, unlabeled data where anomalous behaviour is not well characterized.</div><br>
-                    <div class="section-subtitle">Projects</div><br>
-                    Visit my <a class="in-body-link" href="https://www.kaggle.com/calenirwin">Kaggle</a> and <a class="in-body-link" href="github.com/calenirwin">Github</a> to see some of the projects that are taking up some of my spare time. I am always looking for new challenges and opportunities to learn. 
-            </div>
-            <br>
-            <div class="section-subtitle">Experience</div>
-            <br>
-            <div><strong>IT Systems Assistant</strong><br>Ministry of Natural Resources and Forestry <span style="color: #535f6b">(Summer 2019, Summer 2020)</span>
-            </div>
-            <ul>
-                <li>Developed internal web app for the collection and analysis of snow measurements across Ontario</li>
-                <li>Held meetings with clients in partner government branches to elicit requirements and acquire feedback on iterative improvements</li>
-                <li>Created a regression testing template for new deployments of Ontario's Fish and Wildlife Licensing System, a massive web application that facilitates hundreds of thousands of users</li>
-                <li>Generated simulated data for entry into the Big Game Draw system using Python</li>
-            </ul>
-            <br>
-            <div><strong>Academic Collaborator/Data Analyst</strong><br>Thales Group and Queen's University <span style="color: #535f6b">(June 2021 - Present)</span>
-            </div>
-            <ul>
-                <li>Elicited requirements of data analysis collaboration with transportation industry product-lead</li>
-                <li>Performed preliminary data analysis on large-scale, multi-variate, real-world data</li>
-            </ul>
-            <br>
-            <div><strong>Tutor</strong><br>Oxford Learning Centre <span style="color: #535f6b">(January 2021 - Present)</span>
-            </div>
-            <ul>
-                <li>Delivered proprietary Oxford Learning curriculum to students from grades 1-12</li>
-                <li>Supported students working on school curriculum of all grades and stressed the importance of 
-                    developing good problem solving, organizational, and time management skills</li>
-            </ul>
-            <br>
-            <div><strong>Student Marker</strong><br>Trent University <span style="color: #535f6b">(Fall 2019, Winter 2020)</span>
-            </div>
-            <ul>
-                <li>Marked assignments for an introductory computer science course and a graduate-level data 
-                    mining course</li>
-                <li>Provided detailed feedback to students and worked closely with professors to ensure fair 
-                    marking</li>
-            </ul>
-            <br>
-            <div class="section-subtitle">Education</div><br>
-            <div class="section-body">
-                <div class="section-subsection"><strong>MSc Computer Science</strong><br>Queen's University <span style="color: #535f6b">(2020 - Present)</span></div>
-                <div class="section-subsection"><strong>BSc Computer Science</strong><br>Trent University <span style="color: #535f6b">(2016 - 2020)</span></div>
-            </div>
-            <br>
-            <div id="copyright">Copyright &copy; <script>document.write(new Date().getFullYear())</script> Calen Irwin</div>
-        </div>
-    </div>
+    </section>
 </body>
 </html>
