@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calen Irwin</title>
@@ -13,86 +14,117 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
+            font-family: 'Georgia', serif;
+            background-color: #f7f5f0;
             color: #333;
+            text-align: center;
+            line-height: 1.6;
+            padding: 1rem;
         }
 
-        /* Navigation */
         nav {
-            background-color: #2c3e50;
-            padding: 1rem;
-            position: fixed;
-            width: 100%;
+            background-color: #e6e3df;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
             top: 0;
+            z-index: 1000;
         }
 
         nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
-        }
-
-        nav ul li {
-            margin: 0 1rem;
+            gap: 2rem;
         }
 
         nav ul li a {
-            color: white;
             text-decoration: none;
+            color: #333;
+            font-size: 1.2rem;
             font-weight: bold;
         }
 
-        /* Sections */
         section {
-            padding: 4rem 2rem;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem;
         }
 
         section h2 {
-            margin-bottom: 2rem;
-            font-size: 2rem;
-            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #5a514b;
         }
 
-        /* Hero section */
         #home {
-            background-color: #ecf0f1;
-            text-align: center;
-            padding-top: 6rem;
+            margin-top: 4rem;
         }
 
         #home img {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-            margin-bottom: 2rem;
+            border: 5px solid #e6e3df;
+            margin-bottom: 1.5rem;
         }
 
-        /* Projects section */
+        #home h1 {
+            font-size: 2.8rem;
+            color: #5a514b;
+        }
+
+        #home p {
+            font-size: 1.2rem;
+            color: #7a726d;
+        }
+
+        ul {
+            list-style: none;
+            text-align: left;
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        ul li::before {
+            content: "\2022"; /* Bullet point */
+            color: #5a514b;
+            font-weight: bold;
+            display: inline-block; 
+            width: 1rem;
+        }
+
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr;
             gap: 2rem;
         }
 
         .project-card {
-            background-color: white;
-            padding: 1rem;
+            background-color: #ffffff;
+            padding: 1.5rem;
+            border: 1px solid #ddd;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        /* Contact section */
-        #contact {
-            background-color: #ecf0f1;
-            text-align: center;
+        .project-card h3 {
+            font-size: 1.5rem;
+            color: #5a514b;
         }
 
-        .social-links {
+        .project-card p {
+            color: #7a726d;
+            margin: 1rem 0;
+        }
+
+        .project-card a {
+            text-decoration: none;
+            color: #5a514b;
+            font-weight: bold;
+        }
+
+        #contact .social-links {
             display: flex;
             justify-content: center;
             gap: 2rem;
@@ -100,79 +132,68 @@
         }
 
         .social-links a {
-            color: #2c3e50;
-            text-decoration: none;
+            color: #5a514b;
             font-size: 1.2rem;
+            text-decoration: none;
         }
 
-        /* Responsive design */
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            nav ul li {
-                margin: 0.5rem 0;
+        @media (min-width: 768px) {
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
+
+        @media (min-width: 1024px) {
+            .project-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .social-icons a {
+            color: #333;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            color: #5a514b;
+        }
+
     </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
     <section id="home">
-        <img src="/api/placeholder/200/200" alt="Your Profile Picture">
+        <img src="assets/profile.jpeg" alt="Profile Picture">
         <h1>Calen Irwin</h1>
+        <div class="social-icons">
+            <a href="https://github.com/calenirwin" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/calen-b-irwin" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:calen.irwin@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+        </div>
         <p>Data Scientist | AI Engineer | Autonomy Research</p>
-    </section>
-
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I'm building technology for the future of autonomous train operation with AI and intelligent data analytics</p>
-        <p>Skills:</p>
-        <ul>
-            <li>Python</li>
-            <li>SQL</li>
-            <li>Linux</li>
-            <li>Git</li>
-        </ul>
+        <br>
+        <p>Building technology for the future of autonomous train operation with AI and intelligent data analytics @ Hitachi Rail</p>
     </section>
 
     <section id="projects">
-        <h2>Projects</h2>
+        <h2>My Work</h2>
         <div class="project-grid">
             <div class="project-card">
                 <h3>Project 1</h3>
-                <p>Description of your first project. What you did, technologies used, and the outcome.</p>
-                <a href="#">View Project</a>
+                <p>Place holder</p>
+                <a href="#">Source</a>
             </div>
             <div class="project-card">
                 <h3>Project 2</h3>
-                <p>Description of your second project. What you did, technologies used, and the outcome.</p>
-                <a href="#">View Project</a>
+                <p>...</p>
+                <a href="#">Source</a>
             </div>
             <div class="project-card">
                 <h3>Project 3</h3>
-                <p>Description of your third project. What you did, technologies used, and the outcome.</p>
-                <a href="#">View Project</a>
+                <p>...</p>
+                <a href="#">Source</a>
             </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2>Contact</h2>
-        <div class="social-links">
-            <a href="https://github.com/calenirwin">GitHub</a>
-            <a href="https://linkedin.com/in/calen-b-irwin">LinkedIn</a>
-            <a href="mailto:calen.irwin@gmail.com">Email</a>
         </div>
     </section>
 </body>
