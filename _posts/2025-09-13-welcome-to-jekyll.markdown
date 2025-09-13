@@ -1,16 +1,15 @@
 ---
 layout: post
-title: "Building a Professional Data Science Blog with Jekyll"
-date: 2025-08-23 20:11:12 -0400
+title: "Building a Blog with Jekyll"
+date: 2025-09-13
 categories: [technology, data-science]
 tags: [jekyll, blogging, technical-writing, data-science, ai-generated]
 excerpt: "Exploring how Jekyll can serve as an excellent platform for technical blogging, especially for data scientists and researchers who want to share their work and insights."
 read_time: 5
 ---
 
-# Building a Professional Data Science Blog with Jekyll
 
-As a data scientist working in rail autonomy, I've found that having a professional blog is essential for sharing insights, documenting research, and connecting with the broader technical community. Jekyll has proven to be an excellent choice for this purpose.
+As a data scientist working in rail autonomy, I've found that having a professional blog is essential for sharing insights, documenting research, and connecting with the broader technical community. Jekyll and Github pages seemed like the obvious choice for a free and simple way to do so.
 
 ## Why Jekyll for Technical Blogging?
 
@@ -38,8 +37,8 @@ Here's how I've structured my Jekyll site for professional data science blogging
 ### File Organization
 ```
 _posts/
-├── 2024-01-15-welcome-to-my-blog.md
-├── 2025-08-23-welcome-to-jekyll.markdown
+├── 2025-09-13-welcome-to-jekyll.markdown
+├── 2025-09-13-test-math.md
 └── [future-posts].md
 
 _layouts/
@@ -98,22 +97,6 @@ $$P(safety) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 \cdot sensor\_data + \beta_2 \
 - Book reviews and learning recommendations
 - Conference and workshop summaries
 
-## Best Practices for Technical Blogging
-
-### 1. **Consistent Posting Schedule**
-- Regular updates keep your audience engaged
-- Plan content around your research and project cycles
-- Balance technical depth with accessibility
-
-### 2. **Interactive Content**
-- Include code examples that readers can run
-- Provide datasets for hands-on learning
-- Use visualizations to illustrate concepts
-
-### 3. **Professional Presentation**
-- Clean, readable design that reflects your professional brand
-- Proper attribution and citations
-- Clear navigation and search functionality
 
 ## Future Enhancements
 
@@ -123,7 +106,6 @@ I'm planning to add several features to enhance the technical blogging experienc
 - **Data visualization galleries** showcasing research results
 - **Search functionality** for technical content
 - **RSS feeds** for easy subscription
-- **Comment system** for community engagement
 
 ## Getting Started
 
@@ -142,4 +124,4 @@ The key is to focus on creating valuable content that serves your professional c
 
 ---
 
-*Interested in learning more about technical blogging or Jekyll? Feel free to reach out at [calen.irwin@gmail.com](mailto:calen.irwin@gmail.com) or connect with me on [LinkedIn](https://linkedin.com/in/calen-irwin).*
+*Feel free to reach out at [calen.irwin@gmail.com](mailto:calen.irwin@gmail.com) or connect with me on [LinkedIn](https://linkedin.com/in/calen-b-irwin).*

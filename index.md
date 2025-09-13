@@ -3,23 +3,22 @@ layout: page
 title: About
 ---
 
-I build algorithms that help trains think for themselves.
+I work with sensors and write software.
 
-Currently crafting the future of rail autonomy at Hitachi Rail in Toronto, where I spend my days teaching machines to navigate the complexities of transportation systems with the precision they deserve.
+Currently building the future of rail autonomy at Hitachi Rail, where I work on all stages of end-to-end research projects including technical research, hardware integration, data collection, prototype software design and implementation, and 
 
-When I'm not debugging neural networks or diving into sensor fusion challenges, you'll find me:
-- Lost in a good book (lately oscillating between sci-fi and philosophy)
-- Wandering the trails of Southern Ontario with my camera
-- Writing about the fascinating intersection of AI and everyday life
-- Discovering new ways that technology can make us more human, not less
+When I'm not wrighting code you might find me
+- reading something... usually fantasy but I'm trying to branch out
+- camping or on a trail with my pup
+- trying to make sense of the world
 
-I believe the best solutions come from understanding both the elegance of mathematics and the messiness of the real world.
+The future of transporation and human knowledge work require shape. That shaping needs to be formed by humans with authenticity and non-monetary incentives. I'm trying to be one of those people, but still figuring out what that means.
 
-**Currently reading:** *Klara and the Sun* by Kazuo Ishiguro
-**Currently building:** Predictive maintenance models that actually predict
-**Currently wondering:** How we can make autonomous systems that people actually trust
+**currently reading:** *The Intelligent Investor* by Benjamin Graham (because you're supposed to) and *The Blood Miror* (Lightbringer #4) by Brent Weeks
+**currently building:** my competency with Claude Code
+**currently wondering:** how we can make autonomous systems that work *really* well and people can actually trust
 
 ---
 
-*Always happy to chat about rail systems, machine learning, or that book you just finished.*
+*always happy to chat about tech, books, and literally anything you think is cool*
 
