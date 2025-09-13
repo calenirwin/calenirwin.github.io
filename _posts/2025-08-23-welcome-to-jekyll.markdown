@@ -3,7 +3,7 @@ layout: post
 title: "Building a Professional Data Science Blog with Jekyll"
 date: 2025-08-23 20:11:12 -0400
 categories: [technology, data-science]
-tags: [jekyll, blogging, technical-writing, data-science]
+tags: [jekyll, blogging, technical-writing, data-science, ai-generated]
 excerpt: "Exploring how Jekyll can serve as an excellent platform for technical blogging, especially for data scientists and researchers who want to share their work and insights."
 read_time: 5
 ---

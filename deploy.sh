@@ -6,7 +6,7 @@
 echo "🚀 Starting Jekyll site deployment..."
 
 # Set the PATH to include local gems
-export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
+export PATH="$HOME/.local/share/gem/ruby/3.2.0/bin:$PATH"
 
 # Clean previous build
 echo "🧹 Cleaning previous build..."

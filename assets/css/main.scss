@@ -3,13 +3,872 @@
 
 /*!
  * Calen Irwin's Personal Website
- * Built with Jekyll and following PRD design specifications
- * Bauhaus-inspired minimalism with specified color palette
+ * Hyde-inspired minimalist design following PRD specifications
+ * Bauhaus-inspired minimalism with PRD color palette
  */
 
-// Import the PRD-specified design system
-@import "variables";
-@import "base";
-@import "layout";
-@import "components";
-@import "utilities";
+// Warm Earth Tone Color Palette
+$primary-bg: #FBF9F7;      // Warm off-white
+$secondary-bg: #F7F4F1;    // Soft cream
+$text-primary: #2A261F;    // Rich charcoal
+$text-secondary: #6B6556;  // Warm grey
+$accent-primary: #C87B5B;  // Terracotta
+$accent-supporting: #8B9A7A; // Sage green
+$accent-warm: #D4A584;     // Dusty rose
+$sidebar-bg: #2A261F;      // Rich charcoal
+$sidebar-text: #FBF9F7;    // Warm off-white
+
+// Typography - Elegant and Clean
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+$font-family-base: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+$font-family-heading: Georgia, "Times New Roman", serif;
+$font-family-monospace: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+$line-height-base: 1.6;
+
+// Layout
+$sidebar-width: 18rem;
+$content-max-width: 38rem;
+
+// Responsive breakpoints
+$breakpoint-mobile: 768px;   // 768px
+$breakpoint-tablet: 1024px;  // 1024px
+
+// Reset and Base
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: $font-family-base;
+  font-size: 16px;
+  line-height: $line-height-base;
+}
+
+@media (min-width: 48em) {
+  html {
+    font-size: 18px;
+  }
+}
+
+body {
+  color: $text-primary;
+  background-color: $primary-bg;
+  margin: 0;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
+// Layout wrapper for proper responsive behavior
+.layout-wrapper {
+  display: flex;
+  min-height: 100vh;
+
+  // Mobile: stack vertically
+  @media (max-width: #{$breakpoint-mobile - 1px}) {
+    flex-direction: column;
+  }
+
+  // Desktop: side by side
+  @media (min-width: $breakpoint-mobile) {
+    flex-direction: row;
+  }
+}
+
+// No `:visited` state is required by default (browsers will use `a`)
+a {
+  color: $accent-primary;
+  text-decoration: none;
+
+  // `:focus` is linked to `:hover` for basic accessibility
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+
+  strong {
+    color: inherit;
+  }
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: .5rem;
+  font-family: $font-family-heading;
+  font-weight: 400;
+  line-height: 1.25;
+  color: $text-primary;
+  text-rendering: optimizeLegibility;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+
+h3 {
+  margin-top: 1.5rem;
+  font-size: 1.25rem;
+}
+
+h4, h5, h6 {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+// Body text
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+strong {
+  color: $text-primary;
+}
+
+// Lists
+ul, ol, dl {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-bottom: .5rem;
+}
+
+// Misc
+hr {
+  position: relative;
+  margin: 1.5rem 0;
+  border: 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #fff;
+}
+
+abbr {
+  font-size: 85%;
+  font-weight: bold;
+  color: #555;
+  text-transform: uppercase;
+
+  &[title] {
+    cursor: help;
+    border-bottom: 1px dotted #e5e5e5;
+  }
+}
+
+// Code
+code,
+pre {
+  font-family: $font-family-monospace;
+}
+
+code {
+  padding: .25em .5em;
+  font-size: 85%;
+  color: #bf616a;
+  background-color: #f9f9f9;
+  border-radius: 3px;
+}
+
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  font-size: .8rem;
+  line-height: 1.4;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f9f9f9;
+
+  code {
+    padding: 0;
+    font-size: 100%;
+    color: inherit;
+    background-color: transparent;
+  }
+}
+
+// Quotes
+blockquote {
+  padding: .5rem 1rem;
+  margin: .8rem 0;
+  color: $text-secondary;
+  border-left: .25rem solid #e5e5e5;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 30em) {
+    padding-right: 5rem;
+    padding-left: 1.25rem;
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  margin: 0 0 1rem;
+  border-radius: 5px;
+}
+
+// Tables
+table {
+  margin-bottom: 1rem;
+  width: 100%;
+  border: 1px solid #e5e5e5;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  padding: .25rem .5rem;
+  border: 1px solid #e5e5e5;
+}
+
+tbody tr:nth-child(odd) td,
+tbody tr:nth-child(odd) th {
+  background-color: #f9f9f9;
+}
+
+// Sidebar
+.sidebar {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: $sidebar-text;
+  background-color: $sidebar-bg;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  // Mobile: full width, minimal height
+  @media (max-width: #{$breakpoint-mobile - 1px}) {
+    padding: 1.5rem 1rem;
+    width: 100%;
+    min-height: auto;
+    flex: 0 0 auto;
+  }
+
+  // Desktop: fixed width, full height
+  @media (min-width: $breakpoint-mobile) {
+    width: $sidebar-width;
+    flex: 0 0 $sidebar-width;
+    min-height: 100vh;
+  }
+}
+
+// Sidebar links
+.sidebar a {
+  color: $sidebar-text;
+}
+
+// About section of sidebar
+.sidebar-about {
+  width: 100%;
+
+  h1 {
+    color: $sidebar-text;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 2.5rem;
+    font-weight: 600;
+    font-family: "Bitcount Grid Double", monospace;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    text-transform: none;
+
+    @media (max-width: #{$breakpoint-mobile - 1px}) {
+      font-size: 2rem;
+    }
+  }
+
+  .lead {
+    display: none; // Hide the tagline
+  }
+}
+
+// Sidebar nav
+.sidebar-nav {
+  margin-bottom: 2rem;
+}
+
+.sidebar-nav-item {
+  display: block;
+  line-height: 1.75;
+
+  &.active {
+    font-weight: bold;
+    color: $accent-warm;
+  }
+}
+
+// Sidebar avatar
+.sidebar-avatar {
+  margin-bottom: 1rem;
+
+  img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+// Sidebar social
+.sidebar-social {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+
+  a {
+    display: inline-block;
+    padding: 0.5rem;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: $accent-warm;
+      transform: translateY(-2px);
+    }
+
+    svg {
+      display: block;
+    }
+  }
+}
+
+// Sticky sidebar container
+.sidebar-sticky {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: #{$breakpoint-mobile - 1px}) {
+    justify-content: flex-start;
+  }
+}
+
+// Content
+.content {
+  padding: 2rem 1rem;
+  flex: 1;
+  min-width: 0; // Prevents flex item from overflowing
+
+  // Mobile: full width with padding
+  @media (max-width: #{$breakpoint-mobile - 1px}) {
+    padding: 1rem;
+    max-width: none;
+  }
+
+  // Desktop: flexible with proper spacing
+  @media (min-width: $breakpoint-mobile) {
+    padding: 4rem 2rem;
+    max-width: none;
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    padding: 4rem;
+  }
+}
+
+// Container
+.container {
+  max-width: 38rem;
+  padding-left:  1rem;
+  padding-right: 1rem;
+  margin-left:  auto;
+  margin-right: auto;
+}
+
+// Lead text
+.lead {
+  font-size: 1.1rem;
+  font-weight: 300;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+// Posts and pages
+.page,
+.post {
+  margin-bottom: 4em;
+}
+
+// Blog post
+.page-title,
+.post-title,
+.post-title a {
+  color: $text-primary;
+}
+
+.page-title,
+.post-title {
+  margin-top: 0;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+// Post meta
+.post-date {
+  display: block;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  color: $text-secondary;
+  font-size: 0.9rem;
+}
+
+// Related posts
+.related {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.related-posts {
+  padding-left: 0;
+  list-style: none;
+
+  h3 {
+    margin-top: 0;
+  }
+
+  li {
+    small {
+      font-size: 75%;
+      color: $text-secondary;
+    }
+
+    a:hover {
+      color: $accent-primary;
+      text-decoration: none;
+
+      small {
+        color: inherit;
+      }
+    }
+  }
+}
+
+// Pagination
+.pagination {
+  overflow: hidden;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  font-family: $font-family-base;
+  color: #ccc;
+  text-align: center;
+}
+
+.pagination-item {
+  display: block;
+  padding: 1rem;
+  border: 1px solid #eee;
+
+  &:first-child {
+    margin-bottom: -1px;
+  }
+}
+
+a.pagination-item:hover {
+  background-color: #f5f5f5;
+}
+
+@media (min-width: 30em) {
+  .pagination {
+    margin: 3rem 0;
+  }
+
+  .pagination-item {
+    float: left;
+    width: 50%;
+
+    &:first-child {
+      margin-bottom: 0;
+      border-top-left-radius:    4px;
+      border-bottom-left-radius: 4px;
+    }
+    &:last-child {
+      margin-left: -1px;
+      border-top-right-radius:    4px;
+      border-bottom-right-radius: 4px;
+    }
+  }
+}
+
+// Clean styling without decorative elements
+
+// Subtle animations
+.sidebar-social a {
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+
+  &:hover {
+    transform: translateY(-3px);
+    color: $accent-warm;
+  }
+}
+
+.sidebar-avatar img {
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: rotate(2deg) scale(1.05);
+  }
+}
+
+
+// Code blocks with enhanced styling
+pre {
+  position: relative;
+  background-color: $secondary-bg !important;
+  border: 1px solid rgba($text-secondary, 0.2);
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+
+  // Copy button container
+  &:hover .copy-button {
+    opacity: 1;
+  }
+}
+
+// Copy button styling
+.copy-button {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: $accent-primary;
+  color: $primary-bg;
+  border: none;
+  border-radius: 4px;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+  font-family: $font-family-base;
+  font-weight: 500;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.2s ease;
+  z-index: 10;
+
+  &:hover {
+    background: darken($accent-primary, 10%);
+    transform: translateY(-1px);
+  }
+
+  &.copied {
+    background: $accent-supporting;
+
+    &::after {
+      content: " ✓";
+    }
+  }
+}
+
+// Ensure code content doesn't overlap with copy button
+pre code {
+  padding-right: 4rem;
+}
+
+// Link hover effects
+.content a:not(.sidebar-nav-item) {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: $accent-primary;
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+// Post date styling
+.post-date {
+  font-style: italic;
+}
+
+// Make the sidebar more playful
+.sidebar-about h1 a:hover {
+  color: $accent-warm !important;
+  transition: color 0.3s ease;
+}
+
+// Blog page layout
+.blog-container {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  padding: 0;
+
+  // Switch to single column much sooner (at 1200px instead of 768px)
+  @media (max-width: 75em) { // 1200px
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.blog-main {
+  flex: 1;
+  min-width: 0;
+  max-width: 60rem; // Increased from 50rem to 60rem for wider display
+
+  @media (max-width: 75em) { // 1200px
+    max-width: none;
+  }
+}
+
+.blog-sidebar {
+  flex: 0 0 220px;
+  position: sticky;
+  top: 2rem;
+
+  @media (max-width: 75em) { // 1200px
+    flex: none;
+    position: static;
+    width: 100%;
+    order: -1; // Move to top on mobile
+  }
+}
+
+// Tag navigation
+.tag-navigation {
+  background: $secondary-bg;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid rgba($text-secondary, 0.1);
+
+  h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+    color: $text-primary;
+    font-family: $font-family-heading;
+  }
+}
+
+.tag-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.tag-filter {
+  background: $primary-bg;
+  border: 1px solid rgba($text-secondary, 0.15);
+  border-radius: 16px;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.75rem;
+  color: $text-primary;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: $font-family-monospace;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-transform: lowercase;
+
+  &:hover {
+    background: lighten($accent-primary, 45%);
+    border-color: $accent-primary;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba($accent-primary, 0.15);
+  }
+
+  &.active {
+    background: $accent-primary;
+    color: $primary-bg;
+    border-color: $accent-primary;
+    font-weight: 600;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba($accent-primary, 0.25);
+  }
+
+  .tag-count {
+    font-size: 0.65rem;
+    opacity: 0.9;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.1rem 0.35rem;
+    border-radius: 8px;
+    min-width: 1.2rem;
+    text-align: center;
+    font-family: $font-family-monospace;
+    font-weight: 600;
+  }
+
+  &.active .tag-count {
+    background: rgba(255, 255, 255, 0.3);
+    font-weight: 700;
+  }
+}
+
+// Multi-column tag grid for topic tags
+.tag-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.3rem;
+
+  @media (max-width: #{$breakpoint-mobile - 1px}) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Tag sections in sidebar
+.tag-section {
+  margin-bottom: 1.5rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.9rem;
+    color: $text-secondary;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    font-family: $font-family-base;
+  }
+}
+
+// Post tags styling (inline with posts) - now interactive
+.post-tags {
+  margin: 0.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.post-tag-button {
+  font-size: 0.65rem;
+  padding: 0.2rem 0.45rem;
+  background: rgba($accent-primary, 0.08);
+  border: 1px solid rgba($accent-primary, 0.15);
+  color: $accent-primary;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: $font-family-monospace;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: lowercase;
+
+  &:hover {
+    background: rgba($accent-primary, 0.15);
+    border-color: $accent-primary;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba($accent-primary, 0.2);
+  }
+
+  &.selected {
+    background: $accent-primary;
+    color: $primary-bg;
+    border-color: $accent-primary;
+    font-weight: 600;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba($accent-primary, 0.3);
+  }
+}
+
+// Back navigation for blog posts (sticky)
+.post-back-nav {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+  background: rgba($primary-bg, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 6px;
+  padding: 0.5rem;
+  border: 1px solid rgba($text-secondary, 0.2);
+  box-shadow: 0 2px 8px rgba($text-primary, 0.1);
+
+  // Adjust for desktop with sidebar
+  @media (min-width: $breakpoint-mobile) {
+    left: calc(#{$sidebar-width} + 1rem);
+  }
+
+  .back-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: $text-secondary;
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 0.25rem 0.5rem;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: $accent-primary;
+      transform: translateX(-3px);
+    }
+
+    svg {
+      transition: transform 0.2s ease;
+    }
+
+    &:hover svg {
+      transform: translateX(-2px);
+    }
+  }
+}
+
+// Post header styling
+.post-header {
+  margin-bottom: 2rem;
+
+  .post-title {
+    margin-bottom: 0.5rem;
+  }
+
+  .post-meta {
+    color: $text-secondary;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+
+    span:not(:last-child)::after {
+      content: " • ";
+      margin: 0 0.25rem;
+    }
+  }
+
+  .post-tags {
+    .tag {
+      background: rgba($accent-primary, 0.1);
+      color: $accent-primary;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      margin-right: 0.5rem;
+      display: inline-block;
+      margin-bottom: 0.25rem;
+    }
+  }
+}

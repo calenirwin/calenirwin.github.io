@@ -1,83 +1,168 @@
 ---
 layout: page
-title: Blog
 permalink: /blog/
-subtitle: Thoughts on Technology, AI, Rail Industry, and More
-description: Technical blog covering data science, rail autonomy, AI, startups, literature, gaming, and wellness. Insights from my journey in technology and transportation.
 ---
 
-## About This Blog
+<div class="blog-container">
+  <!-- Main content area -->
+  <div class="blog-main">
+    <div id="all-posts" class="posts">
+      {% for post in site.posts %}
+      <div class="post" data-tags="{{ post.tags | join: ',' }}" data-year="{{ post.date | date: '%Y' }}">
+        <h1 class="post-title">
+          <a href="{{ post.url | relative_url }}">
+            {{ post.title }}
+          </a>
+        </h1>
 
-Welcome to my technical blog! Here I share insights, experiences, and thoughts on a wide range of topics that intersect with my professional work and personal interests. You'll find content covering:
+        <span class="post-date">{{ post.date | date_to_string }}</span>
 
-### Core Topics
-- **Data Science & AI**: Machine learning, statistical analysis, and artificial intelligence applications
-- **Rail Autonomy**: Transportation technology, autonomous systems, and rail industry insights
-- **Technology Trends**: Emerging technologies, startups, and innovation in various industries
-- **Professional Development**: Career insights, learning strategies, and industry observations
-
-### Personal Interests
-- **Literature & Philosophy**: Book reviews, thought experiments, and intellectual exploration
-- **Gaming & Interactive Media**: Game design, storytelling, and the intersection of technology and entertainment
-- **Wellness & Lifestyle**: How technology can enhance human well-being and work-life balance
-
-## Recent Posts
-
-{% raw %}{% for post in site.posts %}
-<article class="post-preview">
-    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-    <div class="post-meta">
-        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
-        {% if post.categories %}
-            <span>in {{ post.categories | join: ', ' }}</span>
+        {% if post.tags and post.tags.size > 0 %}
+        <div class="post-tags">
+          {% for tag in post.tags %}
+          <button class="post-tag-button" data-tag="{{ tag }}">{{ tag }}</button>
+          {% endfor %}
+        </div>
         {% endif %}
-        {% if post.read_time %}
-            <span>{{ post.read_time }} min read</span>
+
+        {% if post.excerpt %}
+          {{ post.excerpt }}
+          {% if post.excerpt != post.content %}
+            <p><a href="{{ post.url | relative_url }}">Read more →</a></p>
+          {% endif %}
+        {% else %}
+          {{ post.content }}
         {% endif %}
+      </div>
+      {% endfor %}
     </div>
-    {% if post.excerpt %}
-    <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
-    {% endif %}
-    {% if post.tags %}
-    <div class="post-tags">
-        {% for tag in post.tags %}
-        <span class="tag">{{ tag }}</span>
-        {% endfor %}
+
+    {% if site.posts.size == 0 %}
+    <div class="no-posts">
+      <p>No posts yet, but stay tuned for insights on data science, rail autonomy, and the fascinating intersection of technology and transportation!</p>
     </div>
     {% endif %}
-</article>
-{% endfor %}{% endraw %}
+  </div>
 
-## Categories
+  <!-- Tag navigation sidebar -->
+  <div class="blog-sidebar">
+    <div class="tag-navigation">
+      <h3>Filter by Tag</h3>
 
-Explore posts by topic:
+      <div class="tag-list">
+        <button class="tag-filter active" data-tag="all">All Posts <span class="tag-count">{{ site.posts.size }}</span></button>
 
-- **[Data Science](/blog/category/data-science/)** - Machine learning, statistics, and analytics
-- **[Rail Autonomy](/blog/category/rail-autonomy/)** - Transportation technology and autonomous systems
-- **[Technology](/blog/category/technology/)** - General tech trends and innovations
-- **[Literature](/blog/category/literature/)** - Book reviews and literary discussions
-- **[Gaming](/blog/category/gaming/)** - Game design and interactive media
-- **[Wellness](/blog/category/wellness/)** - Technology and human well-being
+        <!-- Year tags first -->
+        <div class="tag-section">
+          <h4>Years</h4>
+          {% assign years = site.posts | group_by_exp: "post", "post.date | date: '%Y'" | sort: "name" | reverse %}
+          {% for year_group in years %}
+            <button class="tag-filter" data-tag="year-{{ year_group.name }}" data-type="year">{{ year_group.name }} <span class="tag-count">{{ year_group.items.size }}</span></button>
+          {% endfor %}
+        </div>
 
-## Stay Connected
+        <!-- Content tags -->
+        <div class="tag-section">
+          <h4>Topics</h4>
+          <div class="tag-grid">
+            {% assign all_tags = site.posts | map: "tags" | join: "," | split: "," | uniq | sort %}
+            {% for tag in all_tags %}
+              {% if tag != "" %}
+                {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" %}
+                <button class="tag-filter" data-tag="{{ tag }}" data-type="topic">{{ tag }} <span class="tag-count">{{ tag_posts.size }}</span></button>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-Keep up with my latest posts through:
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  let currentFilter = 'all';
 
-- **[RSS Feed](/feed.xml)** - Subscribe for automatic updates
-- **[GitHub](https://github.com/calenirwin)** - Follow for project updates and technical content
-- **[LinkedIn](https://linkedin.com/in/calen-irwin)** - Professional insights and industry discussions
-- **[Email Newsletter](mailto:calen.irwin@gmail.com)** - Contact me to discuss topics or suggest content
+  const tagFilters = document.querySelectorAll('.tag-filter');
+  const postTagButtons = document.querySelectorAll('.post-tag-button');
+  const posts = document.querySelectorAll('.post[data-tags]');
 
-## Guest Posts & Collaboration
+  function filterPosts(selectedTag) {
+    currentFilter = selectedTag;
 
-I'm always interested in collaborating with other writers and thought leaders. If you have:
-- **Technical expertise** to share in data science, AI, or transportation
-- **Unique perspectives** on technology, literature, or innovation
-- **Collaboration ideas** for joint posts or series
+    posts.forEach(post => {
+      let shouldShow = false;
 
-Feel free to reach out at [calen.irwin@gmail.com](mailto:calen.irwin@gmail.com).
+      if (selectedTag === 'all') {
+        shouldShow = true;
+      } else if (selectedTag.startsWith('year-')) {
+        const year = selectedTag.replace('year-', '');
+        shouldShow = post.getAttribute('data-year') === year;
+      } else {
+        const postTags = post.getAttribute('data-tags').split(',').map(tag => tag.trim());
+        shouldShow = postTags.includes(selectedTag);
+      }
 
----
+      post.style.display = shouldShow ? 'block' : 'none';
+    });
 
-*Have a topic you'd like me to explore? I'm always looking for new ideas and perspectives to share with the community.*
+    // Update post tag button states
+    updatePostTagStates(selectedTag);
+  }
+
+  function updatePostTagStates(selectedTag) {
+    postTagButtons.forEach(button => {
+      const buttonTag = button.getAttribute('data-tag');
+      if (buttonTag === selectedTag) {
+        button.classList.add('selected');
+      } else {
+        button.classList.remove('selected');
+      }
+    });
+  }
+
+  function updateSidebarStates(selectedTag) {
+    tagFilters.forEach(filter => {
+      const filterTag = filter.getAttribute('data-tag');
+      if (filterTag === selectedTag) {
+        filter.classList.add('active');
+      } else {
+        filter.classList.remove('active');
+      }
+    });
+  }
+
+  // Sidebar filter click handlers
+  tagFilters.forEach(filter => {
+    filter.addEventListener('click', function() {
+      const selectedTag = this.getAttribute('data-tag');
+
+      // Toggle behavior: if already active, deselect (show all)
+      if (this.classList.contains('active') && selectedTag !== 'all') {
+        updateSidebarStates('all');
+        filterPosts('all');
+      } else {
+        updateSidebarStates(selectedTag);
+        filterPosts(selectedTag);
+      }
+    });
+  });
+
+  // Post tag click handlers
+  postTagButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const selectedTag = this.getAttribute('data-tag');
+
+      // Toggle behavior: if already selected, deselect (show all)
+      if (currentFilter === selectedTag) {
+        updateSidebarStates('all');
+        filterPosts('all');
+      } else {
+        updateSidebarStates(selectedTag);
+        filterPosts(selectedTag);
+      }
+    });
+  });
+});
+</script>
 

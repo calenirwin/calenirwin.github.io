@@ -33,17 +33,18 @@ A minimalist personal website for Calen Irwin that establishes a strong professi
 Bauhaus-inspired minimalism emphasizing function through form. Clean lines, generous whitespace, and purposeful simplicity that respects the viewer's attention.
 
 **Color Palette**
-- **Primary Background:** Off-white (#FAFAFA)
-- **Secondary Background:** Light grey (#F5F5F5)
-- **Text Primary:** Dark grey (#2C2C2C)
-- **Text Secondary:** Medium grey (#666666)
-- **Accent Color:** Deep blue (#0066CC) for links and CTAs
-- **Supporting Accent:** Warm amber (#FF9500) for selective highlighting
+- **Primary Background:** Warm off-white (#FBF9F7)
+- **Secondary Background:** Soft cream (#F7F4F1)
+- **Text Primary:** Rich charcoal (#2A261F)
+- **Text Secondary:** Warm grey (#6B6556)
+- **Accent Primary:** Terracotta (#C87B5B) for links and CTAs
+- **Supporting Accent:** Sage green (#8B9A7A) for selective highlighting
+- **Earth Warm:** Dusty rose (#D4A584) for subtle accents
 
 **Typography**
-- Headers: Sans-serif, bold weight
-- Body: Sans-serif, regular weight, optimized for readability
-- Code blocks: Monospace font for technical content
+- Headers: Georgia, serif - elegant and readable with classical proportions
+- Body: Source Sans Pro, sans-serif - clean, modern, and highly readable
+- Code blocks: JetBrains Mono, monospace - distinctive and readable for technical content
 
 ### Information Architecture
 

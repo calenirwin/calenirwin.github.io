@@ -11,21 +11,22 @@
 # Site settings - PRD aligned
 title: Calen Irwin
 email: calen.irwin@gmail.com
-description: >- 
-  Data scientist specializing in rail autonomy at Hitachi Rail in Toronto. 
-  Passionate about learning, sharing knowledge, and exploring the intersection 
+tagline: building ai and building with ai
+description: >-
+  Data scientist specializing in rail autonomy at Hitachi Rail in Toronto.
+  Passionate about learning, sharing knowledge, and exploring the intersection
   of technology and transportation.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://calenirwin.github.io" # the base hostname & protocol for your site
 twitter_username: calenirwin
 github_username: calenirwin
-linkedin_username: calen-irwin
+linkedin_username: calen-b-irwin
 
 # Author information
 author:
   name: Calen Irwin
   email: calen.irwin@gmail.com
-  bio: "Data scientist specializing in rail autonomy at Hitachi Rail in Toronto"
+  bio: "Data scientist specializing in autonomy at Hitachi Rail"
   location: "Toronto, Ontario"
   company: "Hitachi Rail"
   role: "Data Scientist - Rail Autonomy"
@@ -34,6 +35,13 @@ author:
 markdown: kramdown
 highlighter: rouge
 theme: minima
+
+# Kramdown settings for MathJax
+kramdown:
+  math_engine: mathjax
+  math_engine_opts:
+    preview: true
+    preview_as_code: true
 
 # Collections
 collections:
@@ -64,6 +72,11 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-paginate
+
+# Pagination
+paginate: 5
+paginate_path: "/page:num/"
 
 # SEO
 seo:
@@ -71,14 +84,14 @@ seo:
   name: Calen Irwin
   description: Data scientist specializing in rail autonomy at Hitachi Rail in Toronto
   url: https://calenirwin.github.io
-  image: /assets/images/og-image.jpg
+  image: /assets/images/calen-headshot-2022.jpeg
   twitter:
     username: calenirwin
   social:
     name: Calen Irwin
     links:
       - https://github.com/calenirwin
-      - https://linkedin.com/in/calen-irwin
+      - https://linkedin.com/in/calen-b-irwin
       - mailto:calen.irwin@gmail.com
 
 # Exclude from processing
