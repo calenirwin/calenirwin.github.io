@@ -1,0 +1,170 @@
+// Base styles following PRD design principles
+// Clarity First, Readable Content, Responsive Simplicity
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: $font-family-sans;
+  font-weight: $font-weight-regular;
+  color: $text-primary;
+  background-color: $primary-bg;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+// Typography hierarchy
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-sans;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  margin: 0 0 $spacing-md 0;
+  color: $text-primary;
+}
+
+h1 {
+  font-size: $font-size-3xl;
+  
+  @media (min-width: $breakpoint-md) {
+    font-size: 3.5rem; // 56px
+  }
+}
+
+h2 {
+  font-size: $font-size-2xl;
+  
+  @media (min-width: $breakpoint-md) {
+    font-size: 2.5rem; // 40px
+  }
+}
+
+h3 {
+  font-size: $font-size-xl;
+}
+
+h4 {
+  font-size: $font-size-lg;
+}
+
+h5, h6 {
+  font-size: $font-size-base;
+}
+
+p {
+  margin: 0 0 $spacing-md 0;
+  line-height: $line-height-relaxed;
+  max-width: 65ch; // Optimal line length for readability
+}
+
+// Links
+a {
+  color: $accent-blue;
+  text-decoration: none;
+  transition: color $transition-fast;
+  
+  &:hover {
+    color: darken($accent-blue, 10%);
+    text-decoration: underline;
+  }
+  
+  &:focus {
+    outline: 2px solid $accent-blue;
+    outline-offset: 2px;
+  }
+}
+
+// Lists
+ul, ol {
+  margin: 0 0 $spacing-md 0;
+  padding-left: $spacing-lg;
+  
+  li {
+    margin-bottom: $spacing-xs;
+    line-height: $line-height-relaxed;
+  }
+}
+
+// Code blocks
+code {
+  font-family: $font-family-mono;
+  font-size: 0.875em;
+  background-color: $secondary-bg;
+  padding: 0.125em 0.25em;
+  border-radius: $border-radius-sm;
+  color: $text-primary;
+}
+
+pre {
+  font-family: $font-family-mono;
+  background-color: $secondary-bg;
+  padding: $spacing-md;
+  border-radius: $border-radius-md;
+  overflow-x: auto;
+  margin: 0 0 $spacing-md 0;
+  
+  code {
+    background: none;
+    padding: 0;
+  }
+}
+
+// Blockquotes
+blockquote {
+  margin: $spacing-lg 0;
+  padding-left: $spacing-lg;
+  border-left: 4px solid $accent-blue;
+  font-style: italic;
+  color: $text-secondary;
+}
+
+// Images
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: $border-radius-sm;
+}
+
+// Tables
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: $spacing-md 0;
+  
+  th, td {
+    padding: $spacing-sm;
+    text-align: left;
+    border-bottom: 1px solid $secondary-bg;
+  }
+  
+  th {
+    font-weight: $font-weight-bold;
+    background-color: $secondary-bg;
+  }
+}
+
+// Accessibility improvements
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// Focus styles for keyboard navigation
+:focus-visible {
+  outline: 2px solid $accent-blue;
+  outline-offset: 2px;
+}

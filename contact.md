@@ -1,57 +1,104 @@
 ---
 layout: page
-title: Contact
+title: Connect
 permalink: /contact/
+subtitle: Let's Start a Conversation
+description: Get in touch for professional collaboration, technical discussions, speaking opportunities, or just to say hello. I'm always interested in connecting with fellow professionals and innovators.
 ---
 
-# Get In Touch
+## Professional Collaboration
 
-I'm always interested in hearing from fellow developers, potential collaborators, or anyone who wants to discuss technology, projects, or opportunities.
+I'm always interested in connecting with fellow professionals, potential collaborators, and anyone passionate about technology and innovation. Whether you're interested in:
+
+### Technical Collaboration
+- **Data Science Projects**: Machine learning, statistical analysis, and predictive modeling
+- **Rail Autonomy Research**: Transportation technology and autonomous systems
+- **Open Source Contributions**: Meaningful projects in data science and transportation
+- **Research Partnerships**: Joint research initiatives in AI and transportation
+
+### Knowledge Sharing
+- **Speaking Opportunities**: Conferences, meetups, and workshops
+- **Technical Writing**: Co-authoring articles, tutorials, or documentation
+- **Mentorship**: Career guidance and technical skill development
+- **Educational Content**: Creating learning materials and resources
 
 ## Ways to Connect
 
 ### 📧 Email
-**your-email@domain.com**
+**[calen.irwin@gmail.com](mailto:calen.irwin@gmail.com)**
 
-Feel free to send me an email about:
-- Project collaborations
-- Technical discussions
-- Speaking opportunities
-- General questions about my work
-
-### 🐙 GitHub
-**[calenirwin](https://github.com/calenirwin)**
-
-Check out my open source contributions and projects. I'm always looking for interesting projects to contribute to!
+The best way to reach me for:
+- Professional collaboration and project discussions
+- Speaking opportunities and conference invitations
+- Technical questions and knowledge sharing
+- General inquiries and networking
 
 ### 💼 LinkedIn
-**[Your LinkedIn Profile]**
+**[Connect with me professionally](https://linkedin.com/in/calen-irwin)**
 
-Connect with me professionally and stay updated with my career journey.
+Perfect for:
+- Professional networking and career discussions
+- Industry insights and thought leadership
+- Staying updated with my professional journey
+- Business collaboration and partnership opportunities
+
+### 🐙 GitHub
+**[View my technical work](https://github.com/calenirwin)**
+
+Great for:
+- Exploring my open source contributions
+- Technical project collaboration
+- Code reviews and technical discussions
+- Following my development work
 
 ### 🐦 Twitter
-**[@yourtwitterhandle](https://twitter.com/yourtwitterhandle)**
+**[@calenirwin](https://twitter.com/calenirwin)**
 
-Follow me for quick thoughts, tech news, and updates.
+Follow for:
+- Quick thoughts on technology and industry trends
+- Real-time updates and insights
+- Engaging in tech community discussions
+- Sharing interesting articles and resources
 
-## What I'm Interested In
+## What I'm Passionate About
 
-I'm particularly interested in:
-- **Open source collaboration** - Contributing to meaningful projects
-- **Technical writing** - Creating tutorials and documentation
-- **Speaking opportunities** - Sharing knowledge at meetups and conferences
-- **Mentorship** - Helping junior developers grow
-- **Innovative projects** - Working on cutting-edge technology
+### Professional Interests
+- **Rail Autonomy & Transportation**: Advancing autonomous systems in rail transportation
+- **Data Science & AI**: Machine learning applications and statistical analysis
+- **Safety Engineering**: Ensuring reliability and safety in autonomous systems
+- **Innovation**: Exploring cutting-edge technologies and their practical applications
 
-## Response Time
+### Personal Interests
+- **Continuous Learning**: Reading, research, and intellectual exploration
+- **Knowledge Sharing**: Teaching, mentoring, and technical writing
+- **Outdoor Exploration**: Hiking, photography, and nature appreciation
+- **Literature & Philosophy**: Thought experiments and intellectual discussions
 
-I typically respond to emails within 24-48 hours. For urgent matters, please indicate this in your subject line.
+## Response Time & Availability
 
-## Let's Build Something Together
+I typically respond to emails within **24-48 hours**. For urgent matters, please indicate this in your subject line.
 
-Whether you have a specific project in mind or just want to chat about technology, I'd love to hear from you. Let's connect and see what we can create together!
+### Best Times to Reach Out
+- **Professional inquiries**: Monday-Friday, 9 AM - 5 PM EST
+- **Speaking opportunities**: Anytime - I'll get back to you promptly
+- **Technical discussions**: Evenings and weekends are fine
+- **General networking**: Anytime - I appreciate all connections
+
+## Let's Start a Conversation
+
+Whether you have a specific project in mind, want to discuss technology trends, or just want to connect with a fellow professional, I'd love to hear from you. Some conversation starters:
+
+- **"I'm working on a similar project and would love to compare approaches..."**
+- **"I read your blog post on [topic] and have some thoughts to share..."**
+- **"I'm organizing a conference and think you'd be a great speaker..."**
+- **"I'm transitioning into data science and would appreciate your guidance..."**
+- **"I have an interesting dataset that might be relevant to your research..."**
+
+## Contact Form
+
+*Coming soon - a contact form for structured inquiries will be added here.*
 
 ---
 
-*Looking forward to hearing from you!*
+*Looking forward to connecting with you and exploring opportunities for collaboration, knowledge sharing, and mutual growth in the exciting intersection of technology and transportation!*
 

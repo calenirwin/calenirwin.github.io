@@ -8,23 +8,78 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 
-# Site settings
-# You can use these to customize the look and feel of your site
+# Site settings - PRD aligned
 title: Calen Irwin
-email: your-email@domain.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Welcome to my personal website and blog. Here you'll find my thoughts,
-  projects, and experiences in software development and technology.
+email: calen.irwin@gmail.com
+description: >- 
+  Data scientist specializing in rail autonomy at Hitachi Rail in Toronto. 
+  Passionate about learning, sharing knowledge, and exploring the intersection 
+  of technology and transportation.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://calenirwin.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  calenirwin
+url: "https://calenirwin.github.io" # the base hostname & protocol for your site
+twitter_username: calenirwin
+github_username: calenirwin
+linkedin_username: calen-irwin
+
+# Author information
+author:
+  name: Calen Irwin
+  email: calen.irwin@gmail.com
+  bio: "Data scientist specializing in rail autonomy at Hitachi Rail in Toronto"
+  location: "Toronto, Ontario"
+  company: "Hitachi Rail"
+  role: "Data Scientist - Rail Autonomy"
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
 theme: minima
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /:collection/:name/
+
+# Default layouts
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+
+# Plugins
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# SEO
+seo:
+  type: Person
+  name: Calen Irwin
+  description: Data scientist specializing in rail autonomy at Hitachi Rail in Toronto
+  url: https://calenirwin.github.io
+  image: /assets/images/og-image.jpg
+  twitter:
+    username: calenirwin
+  social:
+    name: Calen Irwin
+    links:
+      - https://github.com/calenirwin
+      - https://linkedin.com/in/calen-irwin
+      - mailto:calen.irwin@gmail.com
 
 # Exclude from processing
 exclude:

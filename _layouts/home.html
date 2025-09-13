@@ -1,0 +1,119 @@
+---
+layout: default
+---
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1 class="hero-title">{{ page.title | default: site.title }}</h1>
+        <p class="hero-subtitle">
+            Data scientist specializing in rail autonomy at Hitachi Rail in Toronto. 
+            Passionate about learning, sharing knowledge, and exploring the intersection 
+            of technology and transportation.
+        </p>
+        <a href="{{ '/about/' | relative_url }}" class="hero-cta">Learn More About Me</a>
+    </div>
+</section>
+
+<!-- About Preview Section -->
+<section class="content-section">
+    <div class="container">
+        <div class="grid grid-2">
+            <div class="card">
+                <h3 class="card-title">Professional Focus</h3>
+                <p class="card-excerpt">
+                    I'm working on rail autonomy research at Hitachi Rail in Toronto, 
+                    developing cutting-edge solutions for the future of transportation. 
+                    My work combines data science, machine learning, and systems engineering 
+                    to create safer, more efficient rail systems.
+                </p>
+                <a href="{{ '/about/' | relative_url }}" class="btn btn-primary">View Full Background</a>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title">Personal Interests</h3>
+                <p class="card-excerpt">
+                    On the side, I read everything I can and escape to the parks of 
+                    Southern Ontario whenever possible. I'm passionate about continuous 
+                    learning, technical writing, and exploring the intersection of 
+                    technology with literature, gaming, and wellness.
+                </p>
+                <a href="{{ '/blog/' | relative_url }}" class="btn btn-secondary">Read My Blog</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Recent Blog Posts -->
+{% if site.posts.size > 0 %}
+<section class="content-section">
+    <div class="container">
+        <h2 class="section-title">Recent Posts</h2>
+        <div class="post-list">
+            {% for post in site.posts limit:3 %}
+            <article class="post-item">
+                <h3 class="post-title">
+                    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                </h3>
+                <div class="post-meta">
+                    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+                    {% if post.categories %}
+                        <span>in {{ post.categories | join: ', ' }}</span>
+                    {% endif %}
+                </div>
+                {% if post.excerpt %}
+                <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+                {% endif %}
+                {% if post.tags %}
+                <div class="post-tags">
+                    {% for tag in post.tags %}
+                    <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="tag">{{ tag }}</a>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </article>
+            {% endfor %}
+        </div>
+        
+        <div class="text-center mt-5">
+            <a href="{{ '/blog/' | relative_url }}" class="btn btn-primary">View All Posts</a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Connect Section -->
+<section class="content-section">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="mb-4">
+                I'm always interested in connecting with fellow professionals, 
+                potential collaborators, and anyone passionate about technology and innovation.
+            </p>
+            
+            <div class="social-links">
+                <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">
+                    <span>GitHub</span>
+                </a>
+                <a href="mailto:{{ site.email }}">
+                    <span>Email</span>
+                </a>
+                {% if site.linkedin_username %}
+                <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener">
+                    <span>LinkedIn</span>
+                </a>
+                {% endif %}
+                {% if site.twitter_username %}
+                <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" rel="noopener">
+                    <span>Twitter</span>
+                </a>
+                {% endif %}
+            </div>
+            
+            <div class="mt-4">
+                <a href="{{ '/contact/' | relative_url }}" class="btn btn-amber">Get In Touch</a>
+            </div>
+        </div>
+    </div>
+</section>

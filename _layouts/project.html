@@ -1,0 +1,74 @@
+---
+layout: default
+---
+
+<!-- Project Header -->
+<header class="post-header">
+    <div class="container">
+        <h1 class="post-title">{{ page.title }}</h1>
+        <div class="post-meta">
+            {% if page.date %}
+                <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %Y" }}</time>
+            {% endif %}
+            {% if page.technologies %}
+                <span>Technologies: {{ page.technologies | join: ', ' }}</span>
+            {% endif %}
+            {% if page.status %}
+                <span>Status: {{ page.status }}</span>
+            {% endif %}
+        </div>
+        
+        {% if page.tags %}
+        <div class="post-tags">
+            {% for tag in page.tags %}
+            <a href="{{ '/projects/' | relative_url }}#{{ tag | slugify }}" class="tag">{{ tag }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</header>
+
+<!-- Project Content -->
+<article class="post-content">
+    <div class="container">
+        {{ content }}
+    </div>
+</article>
+
+<!-- Project Links -->
+{% if page.links %}
+<section class="project-links">
+    <div class="container">
+        <h3>Project Links</h3>
+        <div class="project-links-grid">
+            {% for link in page.links %}
+            <a href="{{ link.url }}" class="btn {% if link.type == 'demo' %}btn-primary{% else %}btn-secondary{% endif %}" target="_blank" rel="noopener">
+                {{ link.label }}
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Related Projects -->
+{% if site.related_projects.size > 0 %}
+<section class="related-projects">
+    <div class="container">
+        <h3>Related Projects</h3>
+        <div class="grid grid-3">
+            {% for project in site.related_projects limit:3 %}
+            <div class="card">
+                <h4 class="card-title">
+                    <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+                </h4>
+                <div class="card-meta">
+                    {% if project.date %}{{ project.date | date: "%B %Y" }}{% endif %}
+                </div>
+                <p class="card-excerpt">{{ project.excerpt | strip_html | truncatewords: 20 }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
