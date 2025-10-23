@@ -1,29 +1,13 @@
 {
   "projects": [
     {
-      "title": "Personal Blog",
-      "description": "A minimal, performant personal blog built with Next.js 14 and Tailwind CSS. Features markdown-based content management and static site generation.",
-      "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Markdown"],
+      "title": "Portfolio",
+      "description": "A minimal, performant portfolio built with Next.js 15 and Tailwind CSS. Features markdown-based content management and static site generation.",
+      "technologies": ["Next.js", "TypeScript"],
       "githubUrl": "https://github.com/calenirwin/calenirwin.github.io",
       "liveUrl": "https://calenirwin.github.io",
       "featured": true,
       "tags": ["web", "design"]
-    },
-    {
-      "title": "AI Content Assistant",
-      "description": "An intelligent writing assistant that helps generate and refine content using advanced language models. Built with Python and modern NLP techniques.",
-      "technologies": ["Python", "OpenAI API", "FastAPI", "React"],
-      "githubUrl": "https://github.com/calenirwin/ai-assistant",
-      "featured": true,
-      "tags": ["ai", "web"]
-    },
-    {
-      "title": "Design System Library",
-      "description": "A comprehensive component library implementing modern design principles. Includes accessible, reusable components for rapid application development.",
-      "technologies": ["React", "TypeScript", "Storybook", "Tailwind CSS"],
-      "githubUrl": "https://github.com/calenirwin/design-system",
-      "featured": false,
-      "tags": ["design", "web"]
     }
   ]
 }

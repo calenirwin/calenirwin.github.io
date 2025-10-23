@@ -13,10 +13,10 @@ export default async function Home() {
       <section className="bg-gradient-to-br from-primary-teal/10 via-white to-primary-coral/10 py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            Cale is...
+            Calen Irwin
           </h1>
           <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">
-            building with AI and writing about it
+            Learning and building with AI
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/blog">
