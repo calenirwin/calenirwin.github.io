@@ -1,10 +1,10 @@
-import BlogPost from '@/components/BlogPost'
-import Tag from '@/components/ui/Tag'
+import Link from 'next/link'
 import { getAllPosts, getAllTags } from '@/lib/markdown'
+import { formatDate } from '@/lib/utils'
 
 export const metadata = {
-  title: 'Blog - Calen Irwin',
-  description: 'Thoughts on technology, AI, design, and more',
+  title: 'Writing - Calen Irwin',
+  description: 'Thoughts on AI, building products, and the philosophy behind both.',
 }
 
 export default async function BlogPage() {
@@ -12,36 +12,54 @@ export default async function BlogPage() {
   const tags = getAllTags(allPosts)
 
   return (
-    <div className="min-h-screen py-12 px-4">
-      <div className="max-w-6xl mx-auto">
+    <div className="max-w-2xl mx-auto px-6 py-16">
+      <h1 className="font-heading text-4xl md:text-5xl font-extrabold tracking-tight mb-12">
+        Writing
+      </h1>
 
-        {/* Tags Filter */}
-        {tags.length > 0 && (
-          <div className="mb-8">
-            <h2 className="text-lg font-semibold text-gray-900 mb-3">Filter by tag:</h2>
-            <div className="flex flex-wrap gap-2">
-              {tags.map((tag) => (
-                <Tag key={tag} variant="teal" clickable>
-                  {tag}
-                </Tag>
-              ))}
-            </div>
-          </div>
-        )}
+      {tags.length > 0 && (
+        <div className="flex flex-wrap gap-x-4 gap-y-2 mb-12 text-sm">
+          {tags.map((tag) => (
+            <Link
+              key={tag}
+              href={`/tags/${encodeURIComponent(tag)}`}
+              className="text-gray-500 hover:text-black transition-colors"
+            >
+              {tag}
+            </Link>
+          ))}
+        </div>
+      )}
 
-        {/* Blog Posts Grid */}
-        {allPosts.length > 0 ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {allPosts.map((post) => (
-              <BlogPost key={post.slug} post={post} />
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-16 bg-gray-50 rounded-lg">
-            <p className="text-xl text-gray-600">No blog posts yet</p>
-          </div>
-        )}
-      </div>
+      {allPosts.length > 0 ? (
+        <div className="divide-y divide-gray-100">
+          {allPosts.map((post) => (
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              className="group flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 py-5"
+            >
+              <div>
+                <span className="group-hover:opacity-60 transition-opacity">
+                  {post.title}
+                </span>
+                <div className="flex gap-3 mt-1">
+                  {post.tags.map((tag) => (
+                    <span key={tag} className="text-xs text-gray-500">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <span className="text-sm text-gray-500 shrink-0">
+                {formatDate(post.date, 'short')}
+              </span>
+            </Link>
+          ))}
+        </div>
+      ) : (
+        <p className="text-gray-500">No posts yet.</p>
+      )}
     </div>
   )
 }

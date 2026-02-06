@@ -58,8 +58,10 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     const { data, content } = matter(fileContents)
 
     const processedContent = await remark().use(html).process(content)
+    // Strip the leading H1 since the page renders the title separately
+    const strippedContent = processedContent.toString().replace(/^\s*<h1[^>]*>.*?<\/h1>\s*/, '')
     // Sanitize HTML to prevent XSS attacks
-    const contentHtml = sanitizeHtml(processedContent.toString(), {
+    const contentHtml = sanitizeHtml(strippedContent, {
       allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img', 'h1', 'h2', 'h3']),
       allowedAttributes: {
         ...sanitizeHtml.defaults.allowedAttributes,

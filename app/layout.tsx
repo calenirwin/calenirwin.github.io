@@ -1,14 +1,15 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Syne, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 
-const inter = Inter({ subsets: ['latin'] })
+const syne = Syne({ subsets: ['latin'], weight: ['700', '800'], variable: '--font-heading' })
+const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-mono' })
 
 export const metadata: Metadata = {
-  title: 'Calen Irwin - Personal Blog',
-  description: 'Personal blog and portfolio showcasing writing and projects',
+  title: 'Calen Irwin',
+  description: 'Writing about AI, building things, and what I\'m learning.',
 }
 
 export default function RootLayout({
@@ -18,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} flex flex-col min-h-screen`}>
+      <body className={`${syne.variable} ${geistMono.variable} font-mono flex flex-col min-h-screen bg-white text-black`}>
         <Navigation />
         <main className="flex-grow">{children}</main>
         <Footer />
