@@ -1,31 +1,29 @@
 export const metadata = {
   title: 'About - Calen Irwin',
-  description: 'About page for Calen Irwin\'s personal website.',
+  description: 'About Calen Irwin.',
 }
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen py-12 px-4">
-      <div className="max-w-4xl mx-auto">
-        <div className="prose prose-lg max-w-none">
-          <section className="mb-8">
-            <p className="text-gray-700 leading-relaxed mb-4">
-              I&apos;m Cale, a data scientist at Hitachi Rail in Toronto.
-            </p>
-            <br />
-            <p className="text-gray-700 leading-relaxed mb-4">
-              Most of my work involves designing and realizing prototype autonomy applications for the rail industry.
-            </p>
-            <br />
-            <p className="text-gray-700 leading-relaxed mb-4">
-              Lately, I&apos;ve been coding with Claude to make something cool. More on that later.
-            </p>
-            <br />
-            <p className="text-gray-700 leading-relaxed mb-4">
-              This site is a space for sharing my thoughts and projects. Thanks for checking it out.
-            </p>
-          </section>
-        </div>
+    <div className="max-w-2xl mx-auto px-6 py-16">
+      <h1 className="font-heading text-4xl md:text-5xl font-extrabold tracking-tight mb-12">
+        About
+      </h1>
+
+      <div className="space-y-6 text-gray-700 leading-relaxed">
+        <p>
+          I&apos;m Cale. Research data scientist at Hitachi Rail in Toronto,
+          working on autonomy systems for trains.
+        </p>
+
+        <p>
+          I studied CS at Queen&apos;s. Outside of work I read fantasy, run,
+          and camp.
+        </p>
+
+        <p>
+          I write here about AI, building products, and ideas I find interesting.
+        </p>
       </div>
     </div>
   )

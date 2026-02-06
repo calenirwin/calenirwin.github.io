@@ -8,11 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        primary: {
-          teal: '#81D8D0',
-          coral: '#D99E82',
-        },
+      fontFamily: {
+        heading: ['var(--font-heading)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-mono)', 'monospace'],
       },
     },
   },
