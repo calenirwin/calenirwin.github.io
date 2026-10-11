@@ -1,0 +1,136 @@
+settings:
+  content:
+    merge: true
+  commit:
+    identity: user
+    templates:
+      create: "Create {path} (via Pages CMS)"
+      update: "Update {path} (via Pages CMS)"
+      delete: "Delete {path} (via Pages CMS)"
+      rename: "Rename {oldPath} to {newPath} (via Pages CMS)"
+media:
+  - name: images
+    label: Images
+    input: public/uploads
+    output: /uploads
+    rename: safe
+    extensions: [png, jpg, jpeg, webp, gif, avif]
+  - name: documents
+    label: CV files
+    input: public/files
+    output: /files
+    rename: safe
+    extensions: [pdf]
+content:
+  - name: posts
+    label: Blog
+    type: collection
+    path: content/blog
+    format: yaml-frontmatter
+    filename:
+      template: "{primary}.md"
+      field: create
+    subfolders: false
+    exclude: ["*.mdx"]
+    view:
+      primary: title
+      fields: [title, date, published]
+      sort: date
+      order: desc
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: date, label: Date, type: date, required: true }
+      - name: published
+        label: Published
+        type: boolean
+        default: false
+        description: "Turn on when ready to publish. Drafts are hidden from the website, but files in this public repository remain readable on GitHub."
+      - { name: description, label: Summary, type: text }
+      - { name: tags, label: Topics, type: string, list: true }
+      - { name: cover, label: Cover image, type: image, options: { media: images } }
+      - { name: coverAlt, label: Cover image description, type: string }
+      - name: body
+        label: Article
+        type: rich-text
+        options: { format: markdown, media: images }
+  - name: projects
+    label: Projects
+    type: collection
+    path: content/projects
+    format: yaml-frontmatter
+    filename:
+      template: "{primary}.md"
+      field: create
+    subfolders: false
+    view:
+      primary: title
+      fields: [title, status, published]
+      sort: order
+      order: asc
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: published, label: Published, type: boolean, default: false }
+      - { name: description, label: Summary, type: text }
+      - { name: status, label: Status, type: string }
+      - { name: order, label: Display order, type: number, default: 0 }
+      - { name: github, label: Repository URL, type: string }
+      - { name: demo, label: Demo URL, type: string }
+      - { name: cover, label: Cover image, type: image, options: { media: images } }
+      - { name: coverAlt, label: Cover image description, type: string }
+      - name: body
+        label: Project page
+        type: rich-text
+        options: { format: markdown, media: images }
+  - name: home
+    label: Home
+    type: file
+    path: content/pages/home.md
+    format: yaml-frontmatter
+    operations:
+      create: false
+      delete: false
+    fields:
+      - { name: title, label: Heading, type: string, required: true }
+      - { name: description, label: Search description, type: text }
+      - { name: body, label: Introduction, type: rich-text, options: { format: markdown, media: images } }
+  - name: about
+    label: About
+    type: file
+    path: content/pages/about.md
+    format: yaml-frontmatter
+    operations:
+      create: false
+      delete: false
+    fields:
+      - { name: title, label: Heading, type: string, required: true }
+      - { name: description, label: Search description, type: text }
+      - { name: body, label: Content, type: rich-text, options: { format: markdown, media: images } }
+      - { name: portrait, label: Headshot, type: image, options: { media: images } }
+      - { name: portraitAlt, label: Headshot description, type: string }
+  - name: cv
+    label: CV
+    type: file
+    path: content/pages/cv.md
+    format: yaml-frontmatter
+    operations:
+      create: false
+      delete: false
+    fields:
+      - { name: title, label: Heading, type: string, required: true }
+      - { name: description, label: Search description, type: text }
+      - { name: body, label: Content, type: rich-text, options: { format: markdown, media: images } }
+      - { name: download, label: CV PDF, type: file, options: { media: documents } }
+  - name: settings
+    label: Site settings
+    type: file
+    path: content/settings.json
+    format: json
+    operations:
+      create: false
+      delete: false
+    fields:
+      - { name: name, label: Site name, type: string, required: true }
+      - { name: role, label: Current title, type: string }
+      - { name: description, label: Default search description, type: text }
+      - { name: github, label: GitHub URL, type: string }
+      - { name: linkedin, label: LinkedIn URL, type: string }

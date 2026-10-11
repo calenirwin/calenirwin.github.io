@@ -1,82 +1,31 @@
-# calenirwin.github.io
+# Calen Irwin
 
-Personal blog built with Next.js 15, TypeScript, and Tailwind CSS. Deployed to GitHub Pages.
+A personal portfolio and blog using the Albion design system. Astro static site, Markdown/MDX content, Pages CMS editing, and GitHub Pages hosting.
 
-## Quick Start
+## Develop
 
-```bash
-npm install
-npm run dev        # Starts on port 3000 (use PORT=4000 npm run dev for different port)
-npm run build      # Production build
-npm run lint       # ESLint
-npm run type-check # TypeScript checking
+Use Node 22.12 or newer.
+
+```sh
+npm ci
+npm run dev
+npm run type-check
+npm test
+npm run preview
 ```
 
-## Tech Stack
+## Content
 
-- **Next.js 15** - App Router with static export
-- **TypeScript** - Type safety
-- **Tailwind CSS** - Styling
-- **Markdown** - Blog content (gray-matter + remark)
+- `content/pages/`: Home, About, CV.
+- `content/blog/`: Markdown or MDX articles. Only `published: true` is exported.
+- `content/projects/`: project pages with the same publication switch.
+- `content/settings.json`: site identity and social links.
+- `.pages.yml`: Pages CMS editors and image uploads.
 
-## Project Structure
+The portfolio describes and links to projects; implementation remains in its own repository, such as `gym-hnef`.
 
-```
-app/              # Pages and routes
-components/       # React components
-content/          # Markdown blog posts and project data
-lib/              # Utilities and markdown processing
-public/           # Static assets
-docs/             # Project documentation
-```
+See [Editing with Pages CMS](docs/EDITING.md) for activation and mobile writing, and [Albion](docs/ALBION.md) for design tokens. The existing article and previous copy are saved locally outside this site as a migration backup.
 
-## Content Management
+## Deploy
 
-### Blog Posts
-
-Create `.md` files in `content/blog/`:
-
-```yaml
----
-title: "Post Title"
-slug: "post-slug"
-date: "2024-01-15"
-tags: ["ai", "technology"]
-excerpt: "Brief description"
-featured: true
----
-
-Your content here...
-```
-
-### Projects
-
-Edit `content/projects/projects.json`:
-
-```json
-{
-  "title": "Project Name",
-  "description": "Description",
-  "technologies": ["React", "TypeScript"],
-  "githubUrl": "https://github.com/...",
-  "liveUrl": "https://...",
-  "featured": true,
-  "tags": ["web", "ai"]
-}
-```
-
-## Deployment
-
-GitHub Actions automatically deploys to GitHub Pages on push to `main`.
-
-Workflow: `.github/workflows/deploy.yml`
-
-## Documentation
-
-- [docs/CLAUDE.md](docs/CLAUDE.md) - Development guide
-- [docs/IMPLEMENTATION_PLAN.md](docs/IMPLEMENTATION_PLAN.md) - Original implementation plan
-- [docs/BUILD_NOTES.md](docs/BUILD_NOTES.md) - Build troubleshooting notes
-
-## License
-
-MIT
+Pushes to `main` run checks and deploy `dist/` to https://calenirwin.github.io/. Set the GitHub Pages source to GitHub Actions. The CMS needs the configuration on GitHub and owner authorization before it can edit the repository.

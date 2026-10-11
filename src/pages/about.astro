@@ -1,0 +1,20 @@
+---
+import { getEntry, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import site from '../../content/settings.json';
+const page = (await getEntry('pages', 'about'))!;
+const { Content } = await render(page);
+---
+<Base title={page.data.title} description={page.data.description}>
+  <section class:list={['wrap', 'page-section', 'about-page', { 'with-portrait': page.data.portrait }]}>
+    <div class="about-copy">
+      <p class="eyebrow role-label">{site.role}</p>
+      <h1>{page.data.title}</h1>
+      <div class="prose"><Content /></div>
+    </div>
+    {page.data.portrait && <figure class="portrait">
+      <img class="portrait-photo" src={page.data.portrait} alt={page.data.portraitAlt} width="600" height="750" />
+      <img class="portrait-frame" src="/images/albion-portrait-frame.webp" alt="" width="1122" height="1402" aria-hidden="true" />
+    </figure>}
+  </section>
+</Base>

@@ -1,0 +1,25 @@
+---
+import { getEntry, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import site from '../../content/settings.json';
+const page = (await getEntry('pages', 'home'))!;
+const { Content } = await render(page);
+---
+<Base description={page.data.description || undefined}>
+  <section class="hero wrap">
+    <div class="hero-copy">
+      <p class="eyebrow role-label">{site.role}</p>
+      <h1>{page.data.title}</h1>
+      <div class="prose intro"><Content /></div>
+    </div>
+    <figure class="hero-landscape" aria-hidden="true">
+      <img
+        src="/images/albion-landscape.webp"
+        alt=""
+        width="1122"
+        height="1402"
+        fetchpriority="high"
+      />
+    </figure>
+  </section>
+</Base>

@@ -1,0 +1,17 @@
+---
+import Base from '../../layouts/Base.astro';
+import { publishedProjects } from '../../lib/content';
+const projects = await publishedProjects();
+---
+<Base title="Projects"><section class="wrap page-section">
+  <h1>Projects</h1>
+  <div class="project-list">{projects.map((project, index) => <article class="project-entry">
+    <span class="project-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+    <div>
+      {project.data.status && <p class="eyebrow">{project.data.status}</p>}
+      <h2><a href={`/projects/${project.id}/`}>{project.data.title} <span class="entry-arrow">↗</span></a></h2>
+      {project.data.description && <p>{project.data.description}</p>}
+    </div>
+  </article>)}</div>
+  {!projects.length && <p class="empty">No published projects yet.</p>}
+</section></Base>
