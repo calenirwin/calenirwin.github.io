@@ -146,7 +146,7 @@
   .prose a { text-decoration: underline; }
   .prose ul, .prose ol { padding-left: 1.4em; }
   .prose blockquote { margin-inline: 0; padding: 8px 0; font: italic 400 1.8rem/1.5 var(--serif); }
-  .prose pre { padding: 24px; overflow-x: auto; font-size: .85rem; }
+  .prose pre { padding: 24px; overflow-x: auto; background: var(--ink); color: var(--sand); font-size: .85rem; line-height: 1.65; white-space: pre-wrap; }
   .prose code { overflow-wrap: anywhere; }
   .prose table { display: block; overflow: auto; border-spacing: 18px 10px; }
   .prose hr { border: none; height: 48px; }
