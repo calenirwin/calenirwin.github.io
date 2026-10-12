@@ -1,7 +1,7 @@
 ---
 import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import { publishedPosts, dateLabel } from '../../lib/content';
+import { publishedPosts, dateLabel, readingMinutes } from '../../lib/content';
 export async function getStaticPaths() { return (await publishedPosts()).map(post => ({ params: { id: post.id }, props: { post } })); }
 const { post } = Astro.props;
 const { Content } = await render(post);
@@ -9,7 +9,7 @@ const { Content } = await render(post);
 <Base title={post.data.title} description={post.data.description}>
   <article class="reading page-section">
     <a href="/blog/" class="quiet-link">← Blog</a>
-    <header class="article-header"><time class="eyebrow" datetime={post.data.date.toISOString()}>{dateLabel(post.data.date)}</time><h1>{post.data.title}</h1></header>
+    <header class="article-header"><div class="article-meta eyebrow"><time datetime={post.data.date.toISOString()}>{dateLabel(post.data.date)}</time><span aria-hidden="true">·</span><span>{readingMinutes(post.body)} min read</span></div><h1>{post.data.title}</h1></header>
     {post.data.cover && <img class="cover" src={post.data.cover} alt={post.data.coverAlt} />}
     <div class="prose"><Content /></div>
     {post.data.tags.length > 0 && <ul class="tags" aria-label="Topics">{post.data.tags.map(tag => <li>{tag}</li>)}</ul>}

@@ -4,11 +4,14 @@ import '@fontsource/cormorant-garamond/500.css';
 import '@fontsource/cormorant-garamond/400-italic.css';
 import '@fontsource/inter/400.css';
 import '@fontsource/inter/500.css';
+import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 import site from '../../content/settings.json';
 interface Props { title?: string; description?: string; }
 const { title, description = site.description } = Astro.props;
 const current = Astro.url.pathname;
+const canonical = new URL(current, Astro.site);
+const socialImage = new URL('/images/calen-irwin-social.png', Astro.site);
 const links = [['Blog', '/blog/'], ['Projects', '/projects/'], ['About', '/about/'], ['CV', '/cv/']];
 ---
 <!doctype html>
@@ -18,12 +21,23 @@ const links = [['Blog', '/blog/'], ['Projects', '/projects/'], ['About', '/about
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title ? `${title} — ${site.name}` : site.name}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={new URL(current, Astro.site)} />
+    <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="theme-color" content="#D8CDAA" />
     <meta property="og:title" content={title || site.name} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${site.name}, ${site.role}`} />
+    <meta property="og:site_name" content={site.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title || site.name} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <ClientRouter fallback="animate" />
   </head>
   <body class:list={{ 'home-page': current === '/' }}>
     <a class="skip-link" href="#main">Skip to content</a>

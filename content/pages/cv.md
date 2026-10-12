@@ -1,7 +1,7 @@
 ---
 title: "CV"
 description: "Professional background and selected work."
-download: ""
+download: "/files/calen-irwin-cv.pdf"
 ---
 
 ## Current role

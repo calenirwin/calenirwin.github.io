@@ -1,17 +1,23 @@
 ---
 import Base from '../../layouts/Base.astro';
+import Board from '../../components/Board.astro';
 import { publishedProjects } from '../../lib/content';
+import { getEntry, render } from 'astro:content';
 const projects = await publishedProjects();
+const page = (await getEntry('pages', 'projects'))!;
+const { Content } = await render(page);
 ---
-<Base title="Projects"><section class="wrap page-section">
-  <h1>Projects</h1>
+<Base title={page.data.title} description={page.data.description}><section class="wrap page-section index-page">
+  <header class="index-header"><p class="eyebrow">Selected work</p><h1>{page.data.title}</h1><div class="prose page-deck"><Content /></div></header>
   <div class="project-list">{projects.map((project, index) => <article class="project-entry">
-    <span class="project-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-    <div>
-      {project.data.status && <p class="eyebrow">{project.data.status}</p>}
-      <h2><a href={`/projects/${project.id}/`}>{project.data.title} <span class="entry-arrow">↗</span></a></h2>
-      {project.data.description && <p>{project.data.description}</p>}
-    </div>
+    <a class="project-card" href={`/projects/${project.id}/`}>
+      <div class="project-visual" aria-hidden="true">{project.id === 'hnefatafl' ? <Board /> : <span>{String(index + 1).padStart(2, '0')}</span>}</div>
+      <div class="project-copy">
+        <div class="project-meta eyebrow"><span>{String(index + 1).padStart(2, '0')}</span>{project.data.status && <span>{project.data.status}</span>}</div>
+        <h2>{project.data.title}<span class="entry-arrow" aria-hidden="true">↗</span></h2>
+        {project.data.description && <p>{project.data.description}</p>}
+      </div>
+    </a>
   </article>)}</div>
   {!projects.length && <p class="empty">No published projects yet.</p>}
 </section></Base>

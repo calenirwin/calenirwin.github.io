@@ -21,7 +21,7 @@ test('CMS content paths and publication fields match the site', () => {
   assert.equal(config.media.find(m => m.name === 'images').input, 'public/uploads');
   assert.equal(config.media.find(m => m.name === 'images').output, '/uploads');
   assert.equal(config.media.find(m => m.name === 'documents').output, '/files');
-  for (const name of ['home', 'about', 'cv', 'settings']) {
+  for (const name of ['home', 'blog_page', 'projects_page', 'about', 'cv', 'settings']) {
     const file = config.content.find(c => c.name === name);
     assert.equal(file.operations.create, false);
     assert.equal(file.operations.delete, false);

@@ -2,6 +2,12 @@
 import Base from '../../layouts/Base.astro';
 import PostList from '../../components/PostList.astro';
 import { publishedPosts } from '../../lib/content';
+import { getEntry, render } from 'astro:content';
 const posts = await publishedPosts();
+const page = (await getEntry('pages', 'blog'))!;
+const { Content } = await render(page);
 ---
-<Base title="Blog"><section class="wrap page-section"><h1>Blog</h1>{posts.length ? <PostList posts={posts} /> : <p class="empty">No published posts yet.</p>}</section></Base>
+<Base title={page.data.title} description={page.data.description}><section class="wrap page-section index-page">
+  <header class="index-header"><p class="eyebrow">Writing</p><h1>{page.data.title}</h1><div class="prose page-deck"><Content /></div></header>
+  {posts.length ? <PostList posts={posts} /> : <p class="empty">The first essay is taking shape.</p>}
+</section></Base>

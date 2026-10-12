@@ -93,6 +93,30 @@ content:
       - { name: title, label: Heading, type: string, required: true }
       - { name: description, label: Search description, type: text }
       - { name: body, label: Introduction, type: rich-text, options: { format: markdown, media: images } }
+  - name: blog_page
+    label: Blog introduction
+    type: file
+    path: content/pages/blog.md
+    format: yaml-frontmatter
+    operations:
+      create: false
+      delete: false
+    fields:
+      - { name: title, label: Heading, type: string, required: true }
+      - { name: description, label: Search description, type: text }
+      - { name: body, label: Introduction, type: rich-text, options: { format: markdown, media: images } }
+  - name: projects_page
+    label: Projects introduction
+    type: file
+    path: content/pages/projects.md
+    format: yaml-frontmatter
+    operations:
+      create: false
+      delete: false
+    fields:
+      - { name: title, label: Heading, type: string, required: true }
+      - { name: description, label: Search description, type: text }
+      - { name: body, label: Introduction, type: rich-text, options: { format: markdown, media: images } }
   - name: about
     label: About
     type: file
