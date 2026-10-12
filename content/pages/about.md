@@ -1,10 +1,10 @@
 ---
-title: "About"
-description: "Senior AI Developer with a background in research data science, train autonomy, and computer science."
-portrait: "/uploads/calen.jpeg"
-portraitAlt: "Portrait of Calen Irwin"
+title: About
+description: Senior AI Developer with a background in research data science and
+  train autonomy.
+portrait: /uploads/calen.jpeg
+portraitAlt: Portrait of Calen Irwin
 ---
+Hi, I'm Cale! My background is in research and development at Hitachi Rail where I've worked on autonomous rail systems for more than 4 years.
 
-I’m Calen, a Senior AI Developer based in Toronto. My background is in research data science at Hitachi Rail, working on autonomy systems for trains. I studied computer science at Queen’s University.
-
-Away from the screen, I read fantasy, run, and camp. *The Once and Future King* is my favourite novel; its cover helped inspire the colours and typography of this site.
+Outside of working in the AI space, I love reading fantasy novels and staying active. *The Once and Future King* by T.H. White is my all-time favourite novel and its cover helped inspire the colours and typography of this site.
