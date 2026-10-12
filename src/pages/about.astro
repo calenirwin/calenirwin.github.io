@@ -1,7 +1,6 @@
 ---
 import { getEntry, render } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import site from '../../content/settings.json';
 const page = (await getEntry('pages', 'about'))!;
 const { Content } = await render(page);
 ---
@@ -11,7 +10,6 @@ const { Content } = await render(page);
 ] : []}>
   <section class:list={['wrap', 'page-section', 'about-page', { 'with-portrait': page.data.portrait }]}>
     <div class="about-copy">
-      <p class="eyebrow role-label">{site.role}</p>
       <h1>{page.data.title}</h1>
       <div class="prose"><Content /></div>
     </div>
