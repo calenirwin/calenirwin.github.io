@@ -8,6 +8,6 @@ const page = (await getEntry('pages', 'blog'))!;
 const { Content } = await render(page);
 ---
 <Base title={page.data.title} description={page.data.description}><section class="wrap page-section index-page">
-  <header class="index-header"><p class="eyebrow">Writing</p><h1>{page.data.title}</h1><div class="prose page-deck"><Content /></div></header>
+  <header class="index-header"><p class="eyebrow">Blog</p><h1>{page.data.title}</h1><div class="prose page-deck"><Content /></div></header>
   {posts.length ? <PostList posts={posts} /> : <p class="empty">The first essay is taking shape.</p>}
 </section></Base>
