@@ -5,6 +5,8 @@ description: Senior AI Developer with a background in research data science and
 portrait: /uploads/calen.jpeg
 portraitAlt: Portrait of Calen Irwin
 ---
-Hi, I'm Cale! My background is in research and development at Hitachi Rail where I've worked on autonomous rail systems for more than 4 years.
+Senior AI Developer at [Hitachi Rail](https://www.hitachirail.com/)
 
-Outside of working in the AI space, I love reading fantasy and staying active. *The Once and Future King* by T.H. White is my all-time favourite novel and its cover helped inspire the colours and typography of this site.
+I work on design, development, testing, and deployment of autonomous systems and AI-based solutions in rail. Beyond my R&D focus, I am an active contributor to internal AI initiatives and communities where I support the adoption and ennoblement of AI across the organization.
+
+Outside of my work in rail, I love reading fantasy and staying active. *The Once and Future King* by T.H. White is my favourite novel. The cover of the first copy I purchased helped inspire the general design aesthetic of this site.

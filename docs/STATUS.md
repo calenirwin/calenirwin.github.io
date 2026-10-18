@@ -14,6 +14,7 @@ The local site is available at `http://127.0.0.1:4321/`. No credentials or envir
 - Added `/rss.xml`, a visible subscription link, feed auto-discovery, `/sitemap-index.xml`, and `/robots.txt`. Feed items use article summaries and link to the full posts.
 - Added article sharing metadata, publication dates, and topic metadata.
 - Added a check-only pull-request workflow. Deployment remains restricted to pushes to `main` or manual dispatch.
+- Removed both Claude Code workflows: the mention-triggered assistant and automatic pull-request review. Only the site checks and deployment remain.
 - Replaced the published Hnefatafl placeholder with a description based on its public repository. New work in the separate local game checkout is not presented as a publicly available release.
 - Proofread the first article while retaining its voice.
 - Expanded the CV page using text already present in the public PDF. No new employment dates, degrees, or achievements were invented. The PDF itself is unchanged; its older GitHub Pages footer URL still redirects to the site.
