@@ -13,9 +13,9 @@ Pages CMS reads `.pages.yml` from GitHub. Uploaded images go to `public/uploads`
 
 Open **Blog → New**, enter a title, date, summary, and article. Add images using the editor. Save with **Published off** to keep it off the website. Turn Published on and save when ready. The commit triggers GitHub Actions; the site changes once deployment succeeds. If a build fails, the previous site remains live: check the Actions tab.
 
-Drafts are excluded from the home page, writing list, and individual URLs. Their source files remain readable in this public repository. A date is descriptive, not a publication scheduler.
+Drafts are excluded from the home page, writing list, individual URLs, RSS, and the sitemap. Their source files remain readable in this public repository. A date is descriptive, not a publication scheduler.
 
-The initial `Lorem ipsum` article is a draft. The previous article remains archived; About and CV use the background supplied by the owner. The Hnefatafl page is a published Lorem Ipsum placeholder with a link to the existing project repository.
+The initial `Lorem ipsum` article is a draft. `The work around the model` is another unpublished draft for the author to edit. `Building this site` is published. About and CV use the background supplied by the owner, and Hnefatafl describes the original project with a link to its repository. See [the writing plan](WRITING.md).
 
 ## Edit your pages and projects
 
@@ -46,4 +46,4 @@ References: https://pagescms.org/docs/quick-start/ and https://pagescms.org/docs
 
 ## Profile and CV
 
-Edit the current title in Site settings. Add or replace the headshot in About. CV supports editable rich text plus an optional uploaded PDF; the download link appears only after a file is chosen. The initial CV is a short outline using known facts, without invented dates or achievements.
+Edit the current title in Site settings. Add or replace the headshot in About. CV supports editable rich text plus an optional uploaded PDF; the download link appears only after a file is chosen. Its profile and experience copy match the existing PDF, without invented dates or achievements. Edit the page and replace the PDF separately when your experience changes.
