@@ -8,9 +8,9 @@ tags:
   - AI
   - Codex
 ---
-For many, many years I have wanted a small space on the internet to organize my work and share my ideas. I have experimented with lots of different personal websites over the years. I have made a site with handwritten HTML and CSS, used a plug-and-play template, and asked various agent harnesses to build something. All of these end results were interesting to begin with, but I quickly lost motivation to maintain them because manually editting HTML or MD files, then committing them was slow and full of friction.
+For many, many years I have wanted a small space on the internet to organize my work and share my ideas. I have experimented with lots of different personal websites over the years. I have made a site with handwritten HTML and CSS, used a plug-and-play template, and asked various agent harnesses to build something. All of these end results were interesting to begin with, but I quickly lost motivation to maintain them because manually editing HTML or MD files, then committing them was slow and full of friction.
 
-The latest iteration of my portfolio, this site, came to be after a conversation with ChatGPT on the mobile app. I started by pointing it to my existing portfolio repository and a design system I worked on in a previous session that was based on a particular cover of *The Once and Future King* that I love. I explained my frustration with trying to build a habit of maintaining this site and mentioned I would like to be able to edit the content of my site in one clean, view.  From there, I found about about Pages CMS and figured out that there was a workflow that I may actually enjoy. Turns out, I do!
+The latest iteration of my portfolio, this site, came to be after a conversation with ChatGPT on the mobile app. I started by pointing it to my existing portfolio repository and a design system I worked on in a previous session that was based on a particular cover of *The Once and Future King* that I love. I explained my frustration with trying to build a habit of maintaining this site and mentioned I would like to be able to edit the content of my site in one clean view. From there, I found out about Pages CMS and figured out that there was a workflow that I may actually enjoy. Turns out, I do!
 
 ## Using Pages CMS to edit in my voice
 

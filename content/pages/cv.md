@@ -4,17 +4,19 @@ description: "Professional background and selected work."
 download: "/files/calen-irwin-cv.pdf"
 ---
 
-## Current role
+## Profile
 
-**Senior AI Developer**
+Product-minded AI developer working on safe autonomous rail systems and enterprise AI. A large part of my work is helping people understand what AI can do and put it to use.
 
-## Background
+## Experience
 
-Research data science at **Hitachi Rail**, working on autonomy systems for trains.
+**Senior AI Developer — Hitachi Rail**
+
+Research data science and autonomy systems for trains, with work spanning safe autonomous rail systems, enterprise AI, and AI adoption across technical and enterprise contexts.
 
 ## Education
 
-Computer science at **Queen’s University**.
+Computer science studies at **Queen’s University**.
 
 ## Selected project
 
