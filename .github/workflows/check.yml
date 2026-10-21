@@ -29,6 +29,7 @@ jobs:
         with:
           name: portfolio-visual-evidence
           path: .visual-evidence/
+          include-hidden-files: true
           retention-days: 14
       - uses: actions/upload-artifact@v4
         with:
