@@ -1,4 +1,5 @@
 ---
+import Arrow from './Arrow.astro';
 import type { CollectionEntry } from 'astro:content';
 import { dateLabel, readingMinutes } from '../lib/content';
 interface Props { posts: CollectionEntry<'posts'>[]; }
@@ -12,7 +13,7 @@ const { posts } = Astro.props;
         <span aria-hidden="true">·</span>
         <span>{readingMinutes(post.body)} min read</span>
       </div>
-      <h2>{post.data.title}<span class="entry-arrow" aria-hidden="true">↗</span></h2>
+      <h2>{post.data.title}<span class="entry-arrow"><Arrow /></span></h2>
       {post.data.description && <p>{post.data.description}</p>}
       {post.data.tags.length > 0 && <ul class="entry-tags" aria-label="Topics">{post.data.tags.map(tag => <li>{tag}</li>)}</ul>}
     </a>

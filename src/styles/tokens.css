@@ -3,6 +3,11 @@
   --sand: #D8CDAA;
   --ink: #052D46;
   --mist: #A4D9E5;
+  --paper: #F7F6F2;
+  --surface: #FFFFFF;
+  --muted: #465962;
+  --shadow: 0 24px 80px #052d4618;
+  --ease: 180ms ease;
   --serif: 'Cormorant Garamond', Georgia, serif;
   --sans: 'Inter', system-ui, sans-serif;
 

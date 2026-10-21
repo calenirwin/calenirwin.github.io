@@ -1,17 +1,16 @@
 ---
-import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import ProjectPreview from '../../components/ProjectPreview.astro';
+import ProjectDetails from '../../components/ProjectDetails.astro';
 import { publishedProjects } from '../../lib/content';
 export async function getStaticPaths() { return (await publishedProjects()).map(project => ({ params: { id: project.id }, props: { project } })); }
 const { project } = Astro.props;
-const { Content } = await render(project);
 ---
 <Base title={project.data.title} description={project.data.description}>
-  <article class="reading page-section">
+  <article class="reading page-section project-page">
     <a class="quiet-link" href="/projects/">← Projects</a>
-    <header class="article-header">{project.data.status && <p class="eyebrow">{project.data.status}</p>}<h1>{project.data.title}</h1></header>
-    {project.data.cover && <img class="cover" src={project.data.cover} alt={project.data.coverAlt} />}
-    <div class="prose"><Content /></div>
-    <div class="project-links">{project.data.github && <a href={project.data.github}>Source code ↗</a>}{project.data.demo && <a href={project.data.demo}>Live project ↗</a>}</div>
+    <header class="article-header"><h1>{project.data.title}</h1></header>
+    <ProjectPreview project={project} />
+    <ProjectDetails project={project} />
   </article>
 </Base>

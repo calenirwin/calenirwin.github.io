@@ -5,7 +5,7 @@ description: "A Hnefatafl board-game and reinforcement-learning project, origina
 order: 1
 status: "Research project"
 github: "https://github.com/calenirwin/gym-hnef"
-demo: ""
+demo: "https://calenirwin.com/gym-hnef/"
 cover: ""
 coverAlt: ""
 ---

@@ -1,0 +1,11 @@
+---
+import Arrow from './Arrow.astro';
+import type { CollectionEntry } from 'astro:content';
+interface Props { project: CollectionEntry<'projects'>; }
+const { project } = Astro.props;
+---
+{project.data.description && <p class="project-description">{project.data.description}</p>}
+<div class="project-links">
+  {project.data.demo && <a class="project-primary" href={project.data.demo}>Open project <Arrow /></a>}
+  {project.data.github && <a href={project.data.github}>Source code <Arrow /></a>}
+</div>
