@@ -51,6 +51,8 @@ test('publishing, unpublishing, MDX, Markdown sanitization, and clean exported l
     for (const [path, content] of Object.entries(fixtures)) writeFileSync(path, content);
     build();
     const article = read('dist/blog/verification-published/index.html');
+    assert.match(article, /href="\/blog\/" aria-current="location"/);
+    assert.match(read('dist/blog/index.html'), /href="\/blog\/" aria-current="page"/);
     assert.match(article, /<strong>Strong text<\/strong>/);
     assert.match(article, /src="\/favicon.svg"/);
     assert.doesNotMatch(article, /UNSAFE_SCRIPT/);
@@ -99,6 +101,8 @@ test('publishing, unpublishing, MDX, Markdown sanitization, and clean exported l
   }
   for (const f of files('dist').filter(f => f.endsWith('.html'))) {
     const html = readFileSync(f, 'utf8');
+    assert.match(html, /class="skip-link" href="#main"/);
+    assert.match(html, /<main id="main" tabindex="-1">/);
     assert.doesNotMatch(html, /Published fixture|MDX fixture|Research data scientist|The Unreasonable Effectiveness/);
     assert.match(html, /rel="alternate" type="application\/rss\+xml"/);
     assert.match(html, /rel="canonical" href="https:\/\/calenirwin.com\//);

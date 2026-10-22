@@ -51,9 +51,9 @@ const blogPage = (await getEntry('pages', 'blog'))!;
     <a class="skip-link" href="#main">Skip to content</a>
     <header class:list={['site-header', 'wrap', { 'home-header': current === '/' }]}>
       {current !== '/' && <a class="wordmark" href="/" aria-label={`${site.name}, home`}>{site.name}</a>}
-      <nav aria-label="Main navigation">{links.map(([label, href]) => <a href={href} aria-current={current.startsWith(href) ? 'page' : undefined}>{label}</a>)}</nav>
+      <nav aria-label="Main navigation">{links.map(([label, href]) => <a href={href} aria-current={current === href ? 'page' : current.startsWith(href) ? 'location' : undefined}>{label}</a>)}</nav>
     </header>
-    <main id="main"><slot /></main>
+    <main id="main" tabindex="-1"><slot /></main>
     <footer class="site-footer wrap">
       <a class="feed-link" href="/rss.xml">Subscribe via RSS</a>
       <div class="footer-links">

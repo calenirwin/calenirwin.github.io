@@ -1,0 +1,15 @@
+/* Shared starting values; keep product-specific layout and behavior in each app. */
+:root {
+  --sand: #D8CDAA;
+  --ink: #052D46;
+  --mist: #A4D9E5;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Inter', system-ui, sans-serif;
+
+  --width-page: 1120px;
+  --width-reading: 720px;
+  --gutter-page: 56px;
+  --target-size: 44px;
+  --focus-width: 2px;
+  --focus-offset: 6px;
+}
