@@ -1,0 +1,25 @@
+[
+  {
+    "width": 320,
+    "portfolio": "routes, overflow, skip focus, dialog keyboard wrap/Escape/close/backdrop/restore, verified links, reduced motion passed",
+    "pageErrors": []
+  },
+  {
+    "width": 390,
+    "portfolio": "routes, overflow, skip focus, dialog keyboard wrap/Escape/close/backdrop/restore, verified links, reduced motion passed",
+    "pageErrors": []
+  },
+  {
+    "width": 768,
+    "portfolio": "routes, overflow, skip focus, dialog keyboard wrap/Escape/close/backdrop/restore, verified links, reduced motion passed",
+    "pageErrors": []
+  },
+  {
+    "width": 1440,
+    "portfolio": "routes, overflow, skip focus, dialog keyboard wrap/Escape/close/backdrop/restore, verified links, reduced motion passed",
+    "pageErrors": []
+  },
+  {
+    "noJavaScript": "project direct route and destination links passed"
+  }
+]

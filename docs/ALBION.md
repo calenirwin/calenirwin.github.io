@@ -34,8 +34,7 @@ skip link moves keyboard focus to the main landmark. Index pages use
 Run `npm run type-check` and `npm test` (which leaves a clean production build).
 For visual checks, run `npm run preview`, inspect home, blog, and a project at
 320px and desktop widths, and tab through the shared header and footer. Confirm
-that Skip to content focuses main, links do not overlap, the active section is
-underlined, and reduced-motion preferences suppress decorative transitions.
+that Skip to content focuses main, links do not overlap, the active section has a muted background and `aria-current`, and reduced-motion preferences suppress decorative transitions.
 
 ## Reading and playing surfaces
 

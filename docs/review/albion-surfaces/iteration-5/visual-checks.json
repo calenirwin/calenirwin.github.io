@@ -1,0 +1,22 @@
+[
+  {
+    "width": 320,
+    "route": "blog/",
+    "overflow": false
+  },
+  {
+    "width": 390,
+    "route": "blog/",
+    "overflow": false
+  },
+  {
+    "width": 768,
+    "route": "blog/",
+    "overflow": false
+  },
+  {
+    "width": 1440,
+    "route": "blog/",
+    "overflow": false
+  }
+]
