@@ -1,4 +1,6 @@
-# Albion surface review
+**Latest review:** [Iteration 2 — Editorial composition](iteration-2/README.md). The first iteration below is preserved for comparison.
+
+# Albion surface review — first iteration
 
 Draft implementation; do not merge or deploy until visual review. This branch is
 stacked on navigation/token PR #5 (`2b7d65e`); review this diff against that branch.

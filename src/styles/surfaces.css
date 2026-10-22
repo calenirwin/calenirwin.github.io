@@ -69,3 +69,35 @@ body { color: var(--ink); }
 }
 .project-visual .project-board { justify-self: center; }
 .link-arrow { display: inline-block; flex-shrink: 0; vertical-align: middle; }
+
+/* Second review: an ink frame and a continuous editorial reading axis. */
+:root { --frame: #092D42; --frame-raised: #143D50; --reading-sand: #E6DDC3; }
+html { background: var(--frame); }
+body { background: radial-gradient(ellipse at 85% 0, var(--frame-raised), transparent 65%); }
+.site-header, .site-footer { color: var(--sand); }
+.site-header :focus-visible, .site-footer :focus-visible { outline-color: var(--mist); }
+body:not(.home-page):not(.blog-index) main { background: var(--paper); width: min(1200px, calc(100% - 48px)); margin-inline: auto; }
+.home-page { color: var(--sand); }
+.home-page .eyebrow { color: var(--mist); }
+.home-page :focus-visible { outline-color: var(--mist); }
+.blog-index main { flex: 0; }
+.blog-index .page-section { padding-block: 40px 0; }
+.blog-index .index-header { display: block; max-width: none; margin-bottom: 42px; color: var(--sand); }
+.blog-index .index-header .eyebrow { color: var(--mist); margin-bottom: 16px; }
+.blog-index h1 { font-size: clamp(3.2rem, 5vw, 4.5rem); line-height: 1.02; max-width: none; }
+.blog-index .page-deck { color: var(--sand); max-width: 54ch; margin-top: 22px; padding: 0; }
+.blog-index .entries { max-width: none; background: var(--reading-sand); padding: 42px 48px; margin-inline: -48px; box-shadow: 0 24px 64px #00000020; }
+.blog-index .entry { max-width: 740px; }
+.blog-index .entry h2 { font-size: clamp(2.5rem, 4vw, 3.7rem); margin-block: 18px; }
+.blog-index .entry-link { padding-bottom: 0; }
+.blog-index .entry-tags { margin-top: 18px; }
+.blog-index .site-footer { padding-block: 28px; }
+@media (max-width: 740px) {
+  body:not(.home-page):not(.blog-index) main { width: calc(100% - 24px); }
+  .blog-index .page-section { padding-top: 20px; }
+  .blog-index .index-header { margin-bottom: 30px; }
+  .blog-index .entries { padding: 28px 12px; margin-inline: -12px; }
+  .blog-index .site-footer { padding-block: 24px; }
+}
+
+.blog-index .empty { color: var(--sand); }
