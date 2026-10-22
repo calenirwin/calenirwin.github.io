@@ -1,6 +1,8 @@
 ---
+import Arrow from '../../components/Arrow.astro';
 import Base from '../../layouts/Base.astro';
-import Board from '../../components/Board.astro';
+import ProjectPreview from '../../components/ProjectPreview.astro';
+import ProjectDetails from '../../components/ProjectDetails.astro';
 import { publishedProjects } from '../../lib/content';
 import { getEntry, render } from 'astro:content';
 const projects = await publishedProjects();
@@ -9,15 +11,57 @@ const { Content } = await render(page);
 ---
 <Base title={page.data.title} description={page.data.description}><section class="wrap page-section index-page">
   <header class="index-header"><h1>{page.data.title}</h1><div class="prose page-deck"><Content /></div></header>
-  <div class="project-list">{projects.map((project, index) => <article class="project-entry">
-    <a class="project-card" href={`/projects/${project.id}/`}>
-      <div class="project-visual" aria-hidden="true">{project.id === 'hnefatafl' ? <Board /> : <span>{String(index + 1).padStart(2, '0')}</span>}</div>
+  <div class="project-list">{projects.map(project => <article class="project-entry">
+    <a class="project-card" href={`/projects/${project.id}/`} data-project-dialog={`project-${project.id}`}>
+      <ProjectPreview project={project} />
       <div class="project-copy">
-        <div class="project-meta eyebrow"><span>{String(index + 1).padStart(2, '0')}</span>{project.data.status && <span>{project.data.status}</span>}</div>
-        <h2>{project.data.title}<span class="entry-arrow" aria-hidden="true">↗</span></h2>
+        <h2>{project.data.title}<span class="entry-arrow"><Arrow /></span></h2>
         {project.data.description && <p>{project.data.description}</p>}
       </div>
     </a>
+    <dialog class="project-dialog" id={`project-${project.id}`} aria-labelledby={`title-${project.id}`}>
+      <button class="dialog-close" type="button" autofocus aria-label="Close project">Close <span aria-hidden="true">×</span></button>
+      <ProjectPreview project={project} />
+      <div class="dialog-copy">
+        <h2 id={`title-${project.id}`}>{project.data.title}</h2>
+        <ProjectDetails project={project} />
+      </div>
+    </dialog>
   </article>)}</div>
   {!projects.length && <p class="empty">No published projects yet.</p>}
 </section></Base>
+<script>
+  function setupProjects() {
+    document.querySelectorAll<HTMLAnchorElement>('[data-project-dialog]').forEach(link => {
+      if (link.dataset.bound) return;
+      const dialog = document.getElementById(link.dataset.projectDialog!) as HTMLDialogElement;
+      if (!dialog?.showModal) return;
+      link.dataset.bound = 'true';
+      link.setAttribute('aria-haspopup', 'dialog');
+      link.addEventListener('click', event => {
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+        event.preventDefault();
+        document.documentElement.classList.add('dialog-open');
+        dialog.showModal();
+      });
+      dialog.querySelector('button')!.addEventListener('click', () => dialog.close());
+      dialog.addEventListener('click', event => {
+        const bounds = dialog.getBoundingClientRect();
+        if (event.target === dialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) dialog.close();
+      });
+      dialog.addEventListener('keydown', event => {
+        if (event.key !== 'Tab') return;
+        const controls = Array.from(dialog.querySelectorAll<HTMLElement>('button, a[href]'));
+        const first = controls[0], last = controls[controls.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      });
+      dialog.addEventListener('close', () => {
+        document.documentElement.classList.remove('dialog-open');
+        link.focus({ preventScroll: true });
+      });
+    });
+  }
+  document.addEventListener('astro:page-load', setupProjects);
+  document.addEventListener('astro:before-swap', () => document.documentElement.classList.remove('dialog-open'));
+</script>

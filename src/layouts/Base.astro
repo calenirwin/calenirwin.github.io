@@ -6,6 +6,7 @@ import '@fontsource/inter/400.css';
 import '@fontsource/inter/500.css';
 import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
+import '../styles/surfaces.css';
 import site from '../../content/settings.json';
 import { getEntry } from 'astro:content';
 interface Props { title?: string; description?: string; article?: { date: Date; tags: string[] }; preloadImages?: { href: string; type: string }[]; }
@@ -28,7 +29,8 @@ const blogPage = (await getEntry('pages', 'blog'))!;
     <link rel="alternate" type="application/rss+xml" title={blogPage.data.title} href={new URL('/rss.xml', Astro.site)} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     {preloadImages.map(image => <link rel="preload" href={image.href} as="image" type={image.type} fetchpriority="high" />)}
-    <meta name="theme-color" content="#D8CDAA" />
+    <link rel="stylesheet" href="/images/atmosphere/daylight.css" />
+    <meta name="theme-color" content="#F3F0E8" />
     <meta property="og:title" content={title || site.name} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content={article ? 'article' : 'website'} />
@@ -47,7 +49,7 @@ const blogPage = (await getEntry('pages', 'blog'))!;
     <meta name="twitter:image" content={socialImage} />
     <ClientRouter fallback="animate" />
   </head>
-  <body class:list={{ 'home-page': current === '/' }}>
+  <body class:list={{ 'home-page': current === '/', 'blog-index': current === '/blog/' }}>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class:list={['site-header', 'wrap', { 'home-header': current === '/' }]}>
       {current !== '/' && <a class="wordmark" href="/" aria-label={`${site.name}, home`}>{site.name}</a>}

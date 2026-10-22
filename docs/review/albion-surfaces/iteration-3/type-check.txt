@@ -1,0 +1,18 @@
+
+> calenirwin.github.io@2.0.0 type-check
+> astro check
+
+00:05:35 [content] Syncing content
+00:05:35 [content] Synced content
+00:05:35 [types] Generated 1.72s
+00:05:35 [check] Getting diagnostics for Astro files in /workspace/calenirwin.github.io...
+Result (20 files): 
+- 0 errors
+- 0 warnings
+- 0 hints
+
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

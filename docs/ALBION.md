@@ -34,5 +34,20 @@ skip link moves keyboard focus to the main landmark. Index pages use
 Run `npm run type-check` and `npm test` (which leaves a clean production build).
 For visual checks, run `npm run preview`, inspect home, blog, and a project at
 320px and desktop widths, and tab through the shared header and footer. Confirm
-that Skip to content focuses main, links do not overlap, the active section is
-underlined, and reduced-motion preferences suppress decorative transitions.
+that Skip to content focuses main, links do not overlap, the active section has a muted background and `aria-current`, and reduced-motion preferences suppress decorative transitions.
+
+## Reading and playing surfaces
+
+The visual refinement uses Paper #F7F6F2 for reading and Sand #D8CDAA for
+illustrations and game surfaces. Deep blue remains primary ink; muted text uses
+#465962. Mist stays on dark artwork or selection highlights. Original imagery
+and the Cormorant/Inter pairing remain unchanged. Gradients stay inside project
+previews; prose has a flat ground. Motion uses transforms without reflow and is
+disabled under reduced motion.
+
+Project previews, dialogs and direct routes use the existing collection's title,
+description, cover and destination fields. Dedicated project documentation lives
+at those destinations. The direct route remains available without JavaScript.
+
+`tests/browser_visual.py` checks the production build with Playwright Chromium;
+the pull-request workflow uploads its screenshots and JSON as review evidence.

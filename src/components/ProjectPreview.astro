@@ -1,0 +1,9 @@
+---
+import Board from './Board.astro';
+import type { CollectionEntry } from 'astro:content';
+interface Props { project: CollectionEntry<'projects'>; }
+const { project } = Astro.props;
+---
+<div class="project-visual" aria-hidden="true">
+  {project.data.cover ? <img src={project.data.cover} alt="" loading="lazy" /> : project.id === 'hnefatafl' ? <Board /> : <span>{project.data.title.slice(0, 1)}</span>}
+</div>
